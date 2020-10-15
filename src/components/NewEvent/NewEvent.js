@@ -4,6 +4,10 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import ItemTable from '../ItemTable/ItemTable';
 import NewEventForm from '../NewEventForm/NewEventForm';
 
+//Styling Imports
+import Moment from 'react-moment';
+import moment from 'moment';
+
 
 
 class InfoPage extends React.Component {
@@ -20,6 +24,7 @@ class InfoPage extends React.Component {
     return (
       <div>
         <p>New Event</p>
+        <p>{moment().format('LT')}</p>
         <NewEventForm />
 
       </div>

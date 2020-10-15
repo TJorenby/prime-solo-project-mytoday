@@ -1,0 +1,14 @@
+.header  {
+  background-color: white;
+  padding: 10px; 
+  border-bottom: 1px solid lightgray;
+  object-fit: contain;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__headerImage{
+  object-fit: contain;
+  height: 100px;
+  width: 100px; 
+}

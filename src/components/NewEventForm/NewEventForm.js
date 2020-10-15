@@ -5,6 +5,9 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+//Styling Imports
+import './NewEventForm.css';
+
 const NewEventForm = (props) => {
     const [file, setFile] = useState('');
     const [fileName, setFileName] = useState('Choose File');
@@ -17,19 +20,20 @@ const NewEventForm = (props) => {
     const [uploadPercentage, setUploadPercentage] = useState(0);
     const [imagePreview, setImagePreview] = useState('');
     const user_id = props.store.user.id;
-    const date = new Date();
+
     const newEvent = {
-        date: date,
         user_id: user_id,
         title: title,
         description: description,
-        file_url: uploadedFile.filePath,
+        file: file,
         highlight: highlight
     }
 
     console.log('Title:', title);
     console.log('Description:', description);
-    console.log('filePath:', uploadedFile.filePath);
+    console.log('file:', file);
+    // console.log('Faux File Path:', fileUrl);
+    // console.log('Uploaded filePath:', uploadedFile.filePath);
     console.log('highlight:', highlight);
 
     const onChange = e => {
@@ -39,36 +43,6 @@ const NewEventForm = (props) => {
         imageHandler(e.target.files[0]);
     };
 
-    const addImage = async e => {
-        const formData = new FormData();
-        formData.append('file', file);
-        // Try / Catch to post image file to uploads folder
-        try {
-            const res = await axios.post('/upload', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-
-            const { fileName, filePath } = res.data;
-
-            setUploadedFile({ fileName, filePath });
-            setMessage('File Uploaded');
-
-        } catch (err) {
-            if (err.response.status === 500) {
-                setMessage('There was a problem with the server');
-            } else {
-                setMessage(err.response.data.msg);
-            }
-        }
-
-    }
-
-    const toggleHighlight = () => {
-        highlight ? setHighlight(false) : setHighlight(true);
-    }
-
     const onSubmit = e => {
         e.preventDefault();
         // sending items to db
@@ -77,7 +51,41 @@ const NewEventForm = (props) => {
             payload: newEvent
         })
 
+
+
     };
+
+    // const addImage = async e => {
+    //     const formData = new FormData();
+    //     formData.append('file', file);
+    //     // Try / Catch to post image file to uploads folder
+    //     try {
+    //         const res = await axios.post('/upload', formData, {
+    //             headers: {
+    //                 'Content-Type': 'multipart/form-data'
+    //             }
+    //         });
+
+    //         const { fileName, filePath } = res.data;
+
+    //         setUploadedFile({ fileName, filePath });
+    //         setMessage('File Uploaded');
+
+    //     } catch (err) {
+    //         if (err.response.status === 500) {
+    //             setMessage('There was a problem with the server');
+    //         } else {
+    //             setMessage(err.response.data.msg);
+    //         }
+    //     }
+
+    // }
+
+    const toggleHighlight = () => {
+        highlight ? setHighlight(false) : setHighlight(true);
+    }
+
+
 
     const imageHandler = e => {
         const reader = new FileReader();
@@ -94,18 +102,28 @@ const NewEventForm = (props) => {
         <Fragment>
             <h4>New Event Form Component</h4>
             <div>
-                <input
-                    type='file'
-                    className='custom-file-input'
-                    id='customFile'
-                    onChange={onChange}
-                />
-                <button onClick={() => addImage()}>Upload Image</button>
+
+
                 {/* <Progress percentage={uploadPercentage} /> */}
-                <div>
-                    <img src={imagePreview} alt="" id="img" />
+                <div
+                    className="imgPreview"
+                    style={{
+                        background: imagePreview ? `url("${imagePreview}") no-repeat center/cover` : "#131313"
+                    }}
+                >
+                    <> <p>Add an Image</p>
+                        <label htmlFor="fileUpload">Choose File</label>
+                        <input
+                            type='file'
+                            className='customFileUpload'
+                            id='fileUpload'
+                            onChange={onChange}
+                        />
+                    </>
+
                 </div>
 
+                {/* <button onClick={() => addImage()}>Add Image To Event</button> */}
             </div>
             <form onSubmit={onSubmit}>
                 <div className='custom-file mb-4'>
@@ -139,7 +157,7 @@ const NewEventForm = (props) => {
 
                 <input
                     type='submit'
-                    value='Add Event'
+                    value='Submit Event'
                     className='btn btn-primary btn-block mt-4'
                 />
             </form>

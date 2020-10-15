@@ -6,7 +6,7 @@ function* fetchItems(action) {
 
     let response = yield axios({
         method: 'GET',
-        url: '/api/shelf'
+        url: '/api/events'
     });
 
     console.log('back from GET with:', response.data);
@@ -22,7 +22,7 @@ function* deleteItem(action) {
 
     let response = yield axios({
         method: 'DELETE',
-        url: `/api/shelf/${action.payload}`,
+        url: `/api/events/${action.payload}`,
         data: {
             id: action.payload
         }
@@ -37,12 +37,25 @@ function* deleteItem(action) {
 }
 
 function* addItem(action) {
-    console.log('in addItems saga with file', action.payload.file);
+    console.log('in addItems saga with file', action);
+
+    let formData = new FormData();
+    formData.append('date', action.payload.date);
+    formData.append('user_id', action.payload.user_id);
+    formData.append('title', action.payload.title);
+    formData.append('description', action.payload.description);
+    formData.append('file', action.payload.file);
+    formData.append('highlight', action.payload.highlight);
+    console.log('formData is:', formData);
 
     let response = yield axios({
         method: 'POST',
-        url: `/api/shelf`,
-        data: action.payload
+        url: `/api/events`,
+        data: formData,
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+
     });
 
     console.log('back from ADD ITEM with:', response.data);

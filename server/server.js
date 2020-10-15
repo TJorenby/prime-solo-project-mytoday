@@ -9,8 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const shelfRouter = require('./routes/shelf.router');
-const fileRouter = require('./routes/file.router');
+const eventsRouter = require('./routes/events.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -25,8 +24,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/shelf', shelfRouter);
-app.use('/upload', fileRouter);
+app.use('/api/events', eventsRouter);
 
 
 

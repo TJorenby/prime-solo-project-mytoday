@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
 import NewEvent from '../NewEvent/NewEvent';
+import Header from '../Header/Header';
 
 class App extends Component {
   componentDidMount() {
@@ -32,7 +33,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          {/* <Nav /> */}
+          <Header />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -73,7 +75,7 @@ class App extends Component {
               exact
               path="/login"
               component={LoginPage}
-              authRedirect="/user"
+              authRedirect="/info"
             />
             <ProtectedRoute
               // with authRedirect:
