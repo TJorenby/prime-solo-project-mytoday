@@ -43,7 +43,8 @@ const NewEventForm = (props) => {
     const [description, setDescription] = useState('');
     const [highlight, setHighlight] = useState(false);
     const [imagePreview, setImagePreview] = useState('');
-    const [camImage, setCamImage] = useState({});
+    const [camImage, setCamImage] = useState('');
+    const [selectImage, setSelectImage] = useState('');
     const user_id = props.store.user.id;
 
 
@@ -71,6 +72,8 @@ const NewEventForm = (props) => {
         setFile(e.target.files[0]);
         setFileName(e.target.files[0].name);
         imageHandler(e.target.files[0]);
+        // setCamImage('');
+
     };
 
     const onSubmit = e => {
@@ -90,7 +93,8 @@ const NewEventForm = (props) => {
         const reader = new FileReader();
         reader.onload = () => {
             if (reader.readyState === 2) {
-                setImagePreview(reader.result);
+                setSelectImage(reader.result);
+                setCamImage('');
             }
         }
 
@@ -103,10 +107,9 @@ const NewEventForm = (props) => {
             <div>
                 {camImage ? (
                     <img src={camImage} alt="" />
-                ) : (
-                        <img src={imagePreview} alt="" />
-                    )
+                ) : (<img src={selectImage} alt="" />)
                 }
+
             </div>
             <div>
                 {/* <div>
@@ -165,7 +168,9 @@ const NewEventForm = (props) => {
 
             <div className="neweventform__imgButtonContainer">
                 <>
-                    <label htmlFor="fileUpload"><FaImage /></label>
+                    <label htmlFor="fileUpload">
+                        <FaImage />
+                    </label>
                     <input
                         type='file'
                         className="neweventform__imageInput"
@@ -191,6 +196,7 @@ const NewEventForm = (props) => {
                     <Camera2
                         className=".neweventform__camera"
                         setCamImage={setCamImage}
+
                     />
                 </div>
             </Modal>
