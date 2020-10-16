@@ -1,12 +1,39 @@
 import React, { Fragment, useState } from 'react';
 import Progress from '../Progress/Progress';
+import Camera2 from '../Camera2/Camera2';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 
 //Styling Imports
 import './NewEventForm.css';
-import Camera2 from '../Camera2/Camera2';
+import Modal from '@material-ui/core/Modal';
+import { makeStyles } from '@material-ui/core/styles';
+import { Button, Input } from '@material-ui/core';
+
+
+// Modal Styling
+function getModalStyle() {
+    const top = 50;
+    const left = 50;
+
+    return {
+        top: `${top}%`,
+        left: `${left}%`,
+        transform: `translate(-${top}%, -${left}%)`,
+    };
+}
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        position: 'absolute',
+        width: 400,
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
+}));
 
 
 const NewEventForm = (props) => {
@@ -18,9 +45,13 @@ const NewEventForm = (props) => {
     const [highlight, setHighlight] = useState(false);
     const [uploadPercentage, setUploadPercentage] = useState(0);
     const [imagePreview, setImagePreview] = useState('');
-
     const [camImage, setCamImage] = useState({});
     const user_id = props.store.user.id;
+
+
+    const classes = useStyles();
+    const [modalStyle] = React.useState(getModalStyle);
+    const [open, setOpen] = useState(false);
 
     const newEvent = {
         user_id: user_id,
@@ -29,6 +60,8 @@ const NewEventForm = (props) => {
         file: camImage,
         highlight: highlight
     }
+
+
 
     console.log('Title:', title);
     console.log('Description:', description);
@@ -68,7 +101,7 @@ const NewEventForm = (props) => {
 
 
     return (
-        <Fragment>
+        <>
             <h4>New Event Form Component</h4>
             <div>
                 <p>Cam Image should display below</p>
@@ -78,13 +111,22 @@ const NewEventForm = (props) => {
 
 
                 {/* <Progress percentage={uploadPercentage} /> */}
-                <div
-                    className="imgPreview"
-                    style={{
-                        background: imagePreview ? `url("${imagePreview}") no-repeat center/cover` : "#131313"
-                    }}
-                >
-                    <> <p>Add an Image</p>
+                <div>
+
+                    {imagePreview ? (
+
+                        <div
+                            className="imgPreview"
+                            style={{
+                                background: imagePreview ? `url("${imagePreview}") no-repeat center/cover` : "#131313"
+                            }}
+                        >
+                        </div>) : (null)}
+
+
+
+                    <>
+                        <p>Add an Image</p>
                         <label htmlFor="fileUpload">Choose File</label>
                         <input
                             type='file'
@@ -138,12 +180,22 @@ const NewEventForm = (props) => {
                 <button>Cancel</button>
             </div>
 
-            <Camera2
-                setCamImage={setCamImage}
-            />
+            <div className="neweventform__imgButtonContainer">
+                <Button onClick={() => setOpen(true)}>Upload Image</Button>
+                <Button onClick={() => setOpen(true)}>Camera</Button>
+            </div>
+
+            <Modal
+                open={open}
+                onClose={() => setOpen(false)}
+            >
+                <Camera2
+                    setCamImage={setCamImage}
+                />
+            </Modal>
 
 
-        </Fragment>
+        </>
     );
 };
 
