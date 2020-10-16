@@ -2,6 +2,7 @@
 .neweventform{
     background-color: white;
     max-width: 500px;
+    height: 100vh;
     border: 1px solid lightgray;
     margin-bottom: 45px;
 }
@@ -9,6 +10,7 @@
 
 .imgPreview {
     width: 100%;
+    height: auto;
     object-fit: contain;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;

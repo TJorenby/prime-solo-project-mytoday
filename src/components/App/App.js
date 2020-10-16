@@ -61,7 +61,7 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/info"
+              path="/addevent"
               component={NewEvent}
             />
 
@@ -75,7 +75,7 @@ class App extends Component {
               exact
               path="/login"
               component={LoginPage}
-              authRedirect="/info"
+              authRedirect="/user"
             />
             <ProtectedRoute
               // with authRedirect:

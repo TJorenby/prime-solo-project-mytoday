@@ -25,11 +25,7 @@ class InfoPage extends React.Component {
     console.log('Props is:', this.props);
     return (
       <div >
-        <div className="newevent">
-          <p>New Event</p>
-          <p>{moment().format('LT')}</p>
-        </div>
-        <div className="newevent__form">
+        <div>
           <NewEventForm />
         </div>
 

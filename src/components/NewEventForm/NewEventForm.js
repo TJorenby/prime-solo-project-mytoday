@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Camera2 from '../Camera2/Camera2';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { Link } from 'react-router-dom';
 
 
 //Styling Imports
@@ -76,7 +77,7 @@ const NewEventForm = (props) => {
 
     };
 
-    const onSubmit = e => {
+    const onSubmit = () => {
         // e.preventDefault();
         // sending items to db
         props.dispatch({
@@ -104,6 +105,10 @@ const NewEventForm = (props) => {
 
     return (
         <div className="neweventform">
+            <div className="newevent">
+                <p>New Event</p>
+                {/* <p>{moment().format('LT')}</p> */}
+            </div>
             <div>
                 {camImage ? (
                     <img src={camImage} alt="" />
@@ -112,19 +117,6 @@ const NewEventForm = (props) => {
 
             </div>
             <div>
-                {/* <div>
-
-                    {imagePreview ? (
-
-                        <div
-                            className="imgPreview"
-                            style={{
-                                background: imagePreview ? `url("${imagePreview}") no-repeat center/cover` : "#131313"
-                            }}
-                        >
-                        </div>) : (null)}
-
-                </div> */}
 
             </div>
             <div>
@@ -157,14 +149,20 @@ const NewEventForm = (props) => {
 
                 </div>
 
-                <button
-                    onClick={() => onSubmit()}
-                >Submit</button>
+                <Link to="user">
+                    <button
+
+                        onClick={() => onSubmit()}
+                    >Submit</button>
+                </Link>
+
             </div>
 
-            <div>
-                <button>Cancel</button>
-            </div>
+            <Link to="/user">
+                <div>
+                    <button>Cancel</button>
+                </div>
+            </Link>
 
             <div className="neweventform__imgButtonContainer">
                 <>
