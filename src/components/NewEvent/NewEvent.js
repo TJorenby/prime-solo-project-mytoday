@@ -7,6 +7,7 @@ import NewEventForm from '../NewEventForm/NewEventForm';
 //Styling Imports
 import Moment from 'react-moment';
 import moment from 'moment';
+import Camera from '../Camera/Camera';
 
 
 
@@ -26,6 +27,7 @@ class InfoPage extends React.Component {
         <p>New Event</p>
         <p>{moment().format('LT')}</p>
         <NewEventForm />
+
 
       </div>
     )

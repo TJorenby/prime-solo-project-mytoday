@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Camera from '../Camera/Camera';
 import ItemTable from '../ItemTable/ItemTable';
 import NewEventForm from '../NewEventForm/NewEventForm';
 
@@ -23,7 +24,8 @@ class InfoPage extends React.Component {
         <ItemTable />
         {/* <AddItem /> */}
         {/* <EventUpload /> */}
-        <NewEventForm />
+        {/* <NewEventForm /> */}
+        {/* <Camera /> */}
 
       </div>
     )

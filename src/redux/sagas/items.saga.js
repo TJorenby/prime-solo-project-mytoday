@@ -36,8 +36,8 @@ function* deleteItem(action) {
     })
 }
 
-function* addItem(action) {
-    console.log('in addItems saga with file', action);
+function* addEvent(action) {
+    console.log('in addEvent saga with file', action);
 
     let formData = new FormData();
     formData.append('date', action.payload.date);
@@ -69,7 +69,7 @@ function* addItem(action) {
 function* itemsSaga() {
     yield takeLatest('FETCH_ITEMS', fetchItems);
     yield takeLatest('DELETE_ITEM', deleteItem);
-    yield takeLatest('ADD_ITEM', addItem);
+    yield takeLatest('ADD_ITEM', addEvent);
 }
 
 export default itemsSaga;

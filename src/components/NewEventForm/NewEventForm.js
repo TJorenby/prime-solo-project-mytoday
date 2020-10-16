@@ -1,45 +1,44 @@
 import React, { Fragment, useState } from 'react';
-import Message from '../Message/Message';
 import Progress from '../Progress/Progress';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+
 //Styling Imports
 import './NewEventForm.css';
+import Camera2 from '../Camera2/Camera2';
+
 
 const NewEventForm = (props) => {
     const [file, setFile] = useState('');
     const [fileName, setFileName] = useState('Choose File');
-    const [fileUrl, setFileUrl] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [uploadedFile, setUploadedFile] = useState({});
     const [message, setMessage] = useState('');
     const [highlight, setHighlight] = useState(false);
     const [uploadPercentage, setUploadPercentage] = useState(0);
     const [imagePreview, setImagePreview] = useState('');
+
+    const [camImage, setCamImage] = useState({});
     const user_id = props.store.user.id;
 
     const newEvent = {
         user_id: user_id,
         title: title,
         description: description,
-        file: file,
+        file: camImage,
         highlight: highlight
     }
 
     console.log('Title:', title);
     console.log('Description:', description);
     console.log('file:', file);
-    // console.log('Faux File Path:', fileUrl);
-    // console.log('Uploaded filePath:', uploadedFile.filePath);
     console.log('highlight:', highlight);
+    console.log('camImage:', camImage);
 
     const onChange = e => {
         setFile(e.target.files[0]);
         setFileName(e.target.files[0].name);
-        setFileUrl(`/uploads/${e.target.files[0].name}`);
         imageHandler(e.target.files[0]);
     };
 
@@ -50,42 +49,11 @@ const NewEventForm = (props) => {
             type: 'ADD_ITEM',
             payload: newEvent
         })
-
-
-
     };
-
-    // const addImage = async e => {
-    //     const formData = new FormData();
-    //     formData.append('file', file);
-    //     // Try / Catch to post image file to uploads folder
-    //     try {
-    //         const res = await axios.post('/upload', formData, {
-    //             headers: {
-    //                 'Content-Type': 'multipart/form-data'
-    //             }
-    //         });
-
-    //         const { fileName, filePath } = res.data;
-
-    //         setUploadedFile({ fileName, filePath });
-    //         setMessage('File Uploaded');
-
-    //     } catch (err) {
-    //         if (err.response.status === 500) {
-    //             setMessage('There was a problem with the server');
-    //         } else {
-    //             setMessage(err.response.data.msg);
-    //         }
-    //     }
-
-    // }
 
     const toggleHighlight = () => {
         highlight ? setHighlight(false) : setHighlight(true);
     }
-
-
 
     const imageHandler = e => {
         const reader = new FileReader();
@@ -98,9 +66,14 @@ const NewEventForm = (props) => {
         reader.readAsDataURL(e);
     }
 
+
     return (
         <Fragment>
             <h4>New Event Form Component</h4>
+            <div>
+                <p>Cam Image should display below</p>
+                <img src={camImage} alt="" />
+            </div>
             <div>
 
 
@@ -123,7 +96,6 @@ const NewEventForm = (props) => {
 
                 </div>
 
-                {/* <button onClick={() => addImage()}>Add Image To Event</button> */}
             </div>
             <form onSubmit={onSubmit}>
                 <div className='custom-file mb-4'>
@@ -165,6 +137,12 @@ const NewEventForm = (props) => {
             <div>
                 <button>Cancel</button>
             </div>
+
+            <Camera2
+                setCamImage={setCamImage}
+            />
+
+
         </Fragment>
     );
 };
