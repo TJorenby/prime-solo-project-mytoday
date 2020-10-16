@@ -24,6 +24,7 @@
     "react-cam": "^1.1.11",
     "react-dom": "^16.8.6",
     "react-html5-camera-photo": "^1.5.4",
+    "react-icons": "^3.11.0",
     "react-moment": "^1.0.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.0",
@@ -32,6 +33,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.0.2",
+    "sass": "^1.27.0",
     "webcam-easy": "^1.0.5"
   },
   "scripts": {

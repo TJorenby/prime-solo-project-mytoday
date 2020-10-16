@@ -1,15 +1,15 @@
 import React, { Fragment, useState } from 'react';
-import Progress from '../Progress/Progress';
 import Camera2 from '../Camera2/Camera2';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 
 //Styling Imports
-import './NewEventForm.css';
+import './NewEventForm.scss';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
+import { FaCamera, FaImage } from 'react-icons/fa';
 
 
 // Modal Styling
@@ -41,9 +41,7 @@ const NewEventForm = (props) => {
     const [fileName, setFileName] = useState('Choose File');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [message, setMessage] = useState('');
     const [highlight, setHighlight] = useState(false);
-    const [uploadPercentage, setUploadPercentage] = useState(0);
     const [imagePreview, setImagePreview] = useState('');
     const [camImage, setCamImage] = useState({});
     const user_id = props.store.user.id;
@@ -57,7 +55,7 @@ const NewEventForm = (props) => {
         user_id: user_id,
         title: title,
         description: description,
-        file: camImage,
+        file: file,
         highlight: highlight
     }
 
@@ -76,7 +74,7 @@ const NewEventForm = (props) => {
     };
 
     const onSubmit = e => {
-        e.preventDefault();
+        // e.preventDefault();
         // sending items to db
         props.dispatch({
             type: 'ADD_ITEM',
@@ -101,17 +99,17 @@ const NewEventForm = (props) => {
 
 
     return (
-        <>
-            <h4>New Event Form Component</h4>
+        <div className="neweventform">
             <div>
-                <p>Cam Image should display below</p>
-                <img src={camImage} alt="" />
+                {camImage ? (
+                    <img src={camImage} alt="" />
+                ) : (
+                        <img src={imagePreview} alt="" />
+                    )
+                }
             </div>
             <div>
-
-
-                {/* <Progress percentage={uploadPercentage} /> */}
-                <div>
+                {/* <div>
 
                     {imagePreview ? (
 
@@ -123,23 +121,10 @@ const NewEventForm = (props) => {
                         >
                         </div>) : (null)}
 
-
-
-                    <>
-                        <p>Add an Image</p>
-                        <label htmlFor="fileUpload">Choose File</label>
-                        <input
-                            type='file'
-                            className='customFileUpload'
-                            id='fileUpload'
-                            onChange={onChange}
-                        />
-                    </>
-
-                </div>
+                </div> */}
 
             </div>
-            <form onSubmit={onSubmit}>
+            <div>
                 <div className='custom-file mb-4'>
                     <input
                         type='text'
@@ -169,33 +154,49 @@ const NewEventForm = (props) => {
 
                 </div>
 
-                <input
-                    type='submit'
-                    value='Submit Event'
-                    className='btn btn-primary btn-block mt-4'
-                />
-            </form>
+                <button
+                    onClick={() => onSubmit()}
+                >Submit</button>
+            </div>
 
             <div>
                 <button>Cancel</button>
             </div>
 
             <div className="neweventform__imgButtonContainer">
-                <Button onClick={() => setOpen(true)}>Upload Image</Button>
-                <Button onClick={() => setOpen(true)}>Camera</Button>
+                <>
+                    <label htmlFor="fileUpload"><FaImage /></label>
+                    <input
+                        type='file'
+                        className="neweventform__imageInput"
+                        id='fileUpload'
+                        onChange={onChange}
+                    />
+                </>
+
+
+
+                <button
+                    className="btn-styles"
+                    onClick={() => setOpen(true)}>
+                    <FaCamera size="10%" />
+                </button>
             </div>
 
             <Modal
                 open={open}
                 onClose={() => setOpen(false)}
             >
-                <Camera2
-                    setCamImage={setCamImage}
-                />
+                <div style={modalStyle} className={classes.paper}>
+                    <Camera2
+                        className=".neweventform__camera"
+                        setCamImage={setCamImage}
+                    />
+                </div>
             </Modal>
 
 
-        </>
+        </div>
     );
 };
 
