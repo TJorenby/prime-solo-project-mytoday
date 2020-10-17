@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Event from '../Event/Event';
 
 class ItemTable extends React.Component {
 
@@ -27,47 +28,25 @@ class ItemTable extends React.Component {
                 <table>
                     <thead>
                         <tr>
-                            <th>Description</th>
+                            {/* <th>Description</th>
                             <th>Image</th>
-                            <th>Delete</th>
+                            <th>Delete</th> */}
                         </tr>
                     </thead>
                     <tbody>
-
                         {this.props.store.items.map((item, i) => {
 
                             if (this.props.store.user.id === item.user_id) {
                                 return (
-                                    <tr>
-                                        <td>{item.description}</td>
-                                        <td>
-                                            <img key={i} src={`${item.file_url}`} />
-                                        </td>
-                                        <td><button onClick={() => this.deleteItem(item.id)}>Delete</button></td>
-                                    </tr>
-                                )
-                            }
-                            else {
-                                return (
-                                    <tr>
-                                        <td>{item.description}</td>
-                                        <td>
-                                            <img key={i} src={item.image_url} />
-                                        </td>
+                                    <Event item={item} />
 
-                                    </tr>
                                 )
                             }
+
 
                         })}
-
-
-
-
                     </tbody>
                 </table>
-
-
             </div>
         )
     }

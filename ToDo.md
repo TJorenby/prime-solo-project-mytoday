@@ -4,7 +4,7 @@ Pre-dev checklist
     [] Custom Logo
     [] React Calendar Build
     [X] Moment.js Build
-    [] Tailwind CSS tutorial
+   
 
 --Client Side--
 
@@ -43,23 +43,23 @@ Pre-dev checklist
         [] Timestamp (ex. 8:54a Tues, Jan 14th, 2021) 
             <form> 
             Fields
-                [] Title Input (NOT NULL)
-                    [] Sends Text Value
-                [] Event Description (can be null)
-                    [] Sends Text Value
-                [] Select Image for Upload (can be null)
-                    [] Sends Image URL
-                [] Make Highlight (checkbox star or heart icon?? - Refer to Feedback project)
-                    [] Boolean 
+                [X] Title Input (NOT NULL)
+                    [X] Sends Text Value
+                [X] Event Description (can be null)
+                    [X] Sends Text Value
+                [X] Select Image for Upload (can be null)
+                    [X] Sends Image URL
+                [X] Make Highlight (checkbox star or heart icon?? - Refer to Feedback project)
+                    [X] Boolean 
             Buttons
-                [] Submit - Sends to db
-                    [] title
-                    [] description
-                    [] imageUrl
-                    [] user_id (gather form Login)
-                    [] timestamp
-                    [] highlight
-                [] Cancel - Clears Fields and returns to HOME SCREEN
+                [X] Submit - Sends to db
+                    [X] title
+                    [X] description
+                    [X] imageUrl
+                    [X] user_id (gather form Login)
+                    [X] timestamp
+                    [X] highlight
+                [X] Cancel - Clears Fields and returns to HOME SCREEN
             </form>
 
     ARCHIVE (Component)

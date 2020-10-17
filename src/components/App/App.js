@@ -8,14 +8,14 @@ import {
 
 import { connect } from 'react-redux';
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+import FooterNav from '../FooterNav/FooterNav';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import Highlights from '../Highlights/Highlights';
+import Archive from '../Archive/Archive';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -23,6 +23,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import './App.css';
 import NewEvent from '../NewEvent/NewEvent';
 import Header from '../Header/Header';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class App extends Component {
   componentDidMount() {
@@ -33,8 +34,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <Nav /> */}
-          <Header />
+
+          {this.props.store.user.id ? (
+            <Header />
+          ) : (null)}
+
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -63,6 +67,20 @@ class App extends Component {
               exact
               path="/addevent"
               component={NewEvent}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/highlights"
+              component={Highlights}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/Archive"
+              component={Archive}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will
@@ -95,15 +113,26 @@ class App extends Component {
               component={LandingPage}
               authRedirect="/user"
             />
+            <ProtectedRoute
+              // with authRedirect:
+              // - if logged in, redirects to "/user"
+              // - else shows LandingPage at "/home"
+              exact
+              path="/footernav"
+              component={FooterNav}
+              authRedirect="/user"
+            />
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          <Footer />
+          {this.props.store.user.id ? (
+            <FooterNav />
+          ) : (null)}
         </div>
       </Router>
     );
   }
 }
 
-export default connect()(App);
+export default connect(mapStoreToProps)(App);

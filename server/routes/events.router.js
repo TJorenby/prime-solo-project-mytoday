@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
         }
     }); // moves uploaded file to storage.
 
-    const fileUrl = `./public/uploads/${timestamp}-${file.name}`
+    const fileUrl = `./uploads/${timestamp}-${file.name}`
 
     const queryText = `
     INSERT INTO "events" ("date", "user_id", "title", "description", "file_url", "highlight")

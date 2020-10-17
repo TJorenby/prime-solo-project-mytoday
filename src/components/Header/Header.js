@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.css'
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 function Header() {
     return (
@@ -9,7 +10,7 @@ function Header() {
                 src="/images/myToday-logo-low-res.jpeg"
                 alt=""
             />
-            <p>Test</p>
+            <LogOutButton />
         </div>
     )
 }
