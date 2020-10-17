@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Event from '../Event/Event';
+import moment from 'moment';
 
 class ItemTable extends React.Component {
 
@@ -37,14 +38,23 @@ class ItemTable extends React.Component {
                         {this.props.store.items.map((item, i) => {
 
                             if (this.props.store.user.id === item.user_id) {
-                                return (
-                                    <Event item={item} />
+                                console.log('item.date is:', item.date);
+                                let dateString = moment(item.date).format('MMMM YYYY').toString();
+                                console.log('dateString is:', dateString);
 
-                                )
+
+
+
+                                if (dateString === 'September 2020') {
+                                    return (
+                                        <Event item={item} />
+
+                                    )
+                                }
                             }
-
-
                         })}
+
+
                     </tbody>
                 </table>
             </div>
