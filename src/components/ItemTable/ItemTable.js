@@ -24,6 +24,7 @@ class ItemTable extends React.Component {
     }
 
     render() {
+        console.log('Item table props:', this.props.store.items);
         return (
             <div>
                 <table>
@@ -35,15 +36,13 @@ class ItemTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.store.items.map((item, i) => {
+
+                        {/* {this.props.store.items.map((item, i) => {
 
                             if (this.props.store.user.id === item.user_id) {
                                 console.log('item.date is:', item.date);
                                 let dateString = moment(item.date).format('MMMM YYYY').toString();
                                 console.log('dateString is:', dateString);
-
-
-
 
                                 if (dateString === 'September 2020') {
                                     return (
@@ -52,8 +51,7 @@ class ItemTable extends React.Component {
                                     )
                                 }
                             }
-                        })}
-
+                        })} */}
 
                     </tbody>
                 </table>

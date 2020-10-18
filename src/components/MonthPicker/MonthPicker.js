@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function MonthPicker() {
+function MonthPicker(props) {
 
     const classes = useStyles();
     const [month, setMonth] = React.useState('');
@@ -26,10 +26,13 @@ function MonthPicker() {
 
     const handleChangeMonth = (event) => {
         setMonth(event.target.value);
+        props.setMonth(event.target.value);
     };
 
     const handleChangeYear = (event) => {
         setYear(event.target.value);
+        props.setYear(event.target.value);
+
     };
 
     return (

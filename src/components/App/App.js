@@ -28,6 +28,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 class App extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_USER' });
+    this.props.dispatch({ type: 'FETCH_ITEMS' });
+
   }
 
   render() {

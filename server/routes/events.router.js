@@ -20,6 +20,9 @@ router.get('/', (req, res) => {
 
 //POST event to db and move associated file to storage
 router.post('/', (req, res) => {
+    if (req.files === null) {
+        return res.status(400).json({ msg: 'no file uploaded' });
+    }
 
     const file = req.files.file;
     const timestamp = Date.now(); // used for adding timestamp to file name. Prevents duplicate file names. 
