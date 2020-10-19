@@ -65,6 +65,25 @@ router.delete('/:id', (req, res) => {
         });
 });
 
+// PUT route for updating Highlight and Event description fields
+router.put('/:id', (req, res) => {
+    let id = req.params.id;
+    const queryText = `UPDATE "events" 
+	SET "description" = $1, "highlight" = $2
+	WHERE "id" = $3;`;
+
+    pool.query(queryText, [req.body.description, req.body.highlight, id])
+        .then(response => {
+            console.log('updated Event:', id, response);
+            res.sendStatus(200);
+        })
+        .catch(err => {
+            console.log(`Error making db query: ${queryText}`, err);
+            res.sendStatus(500);
+        })
+
+});
+
 
 
 module.exports = router;

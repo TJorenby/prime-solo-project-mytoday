@@ -1,5 +1,10 @@
 --myToday Master ToDo List--
 
+--THINGS TO FIX--
+    [] Screenshots are not saving do db
+    [] Put Route is throwing a syntax error
+    [] Login Takes user to Archive rather than Home. 
+
 Pre-dev checklist
     [] Custom Logo
     [] React Calendar Build
@@ -15,10 +20,10 @@ Pre-dev checklist
 
     FOOTER (Component)
         [] Buttons
-            [] Highlights - Routes to Highlights Page
+            [X] Highlights - Routes to Highlights Page
             [] Today - Routes to Home Screen
-            [] Archives - Links to Archives
-            [] ADD Event (possibly)??
+            [X] Archives - Links to Archives
+            [X] ADD Event (possibly)??
         [] Styled
 
     HOME SCREEN (Component)
@@ -30,9 +35,9 @@ Pre-dev checklist
             [] Needs to be in scroll-able format to allow Add Event Button to render at a minimum size
 
             Event Component
-                [] Event Title
-                [] Timestamp
-                [] Click for details button (links to Event Details via event.id)
+                [X] Event Title
+                [X] Timestamp
+                [X] Click for details button (links to Event Details via event.id)
         [] ADD EVENT Button (possibly on FOOTER component??)
             [] Sized According 
 

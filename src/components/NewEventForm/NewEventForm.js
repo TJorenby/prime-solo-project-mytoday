@@ -81,7 +81,7 @@ const NewEventForm = (props) => {
         // e.preventDefault();
         // sending items to db
         props.dispatch({
-            type: 'ADD_ITEM',
+            type: 'ADD_EVENT',
             payload: newEvent
         })
     };

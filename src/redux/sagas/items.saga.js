@@ -36,6 +36,25 @@ function* deleteItem(action) {
     })
 }
 
+function* putUpdate(action) {
+    console.log('in putUpdate saga with', action);
+
+    let response = yield axios({
+        method: 'PUT',
+        url: `/api/events/${action.payload}`,
+        data: {
+            description: action.payload
+        }
+    });
+
+    console.log('back from PUT with:', response.data);
+
+    yield put({
+        type: 'FETCH_ITEMS',
+
+    })
+}
+
 function* addEvent(action) {
     console.log('in addEvent saga with file', action);
 
@@ -69,7 +88,8 @@ function* addEvent(action) {
 function* itemsSaga() {
     yield takeLatest('FETCH_ITEMS', fetchItems);
     yield takeLatest('DELETE_ITEM', deleteItem);
-    yield takeLatest('ADD_ITEM', addEvent);
+    yield takeLatest('ADD_EVENT', addEvent);
+    yield takeLatest('PUT_UPDATE', putUpdate);
 }
 
 export default itemsSaga;

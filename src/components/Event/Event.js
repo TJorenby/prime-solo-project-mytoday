@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 //Styling Imports
 import Modal from '@material-ui/core/Modal';
@@ -30,28 +31,42 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+//________
+
 function Event(props) {
 
-    const [highlight, setHighlight] = useState(false);
     const [textOpen, setTextOpen] = useState(false);
-    const [text, setText] = useState(props.item.description);
+    const [highlight, setHighlight] = useState(props.item.highlight);
+    const [description, setDescription] = useState(props.item.description);
+
 
     // Modal stuff
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = useState(false);
 
+    const update = {
+        description: description,
+        highlight: highlight
 
+    }
 
 
     const toggleHighlight = () => {
         highlight ? setHighlight(false) : setHighlight(true);
     }
 
-    const updateText = () => {
+    const updateDescription = () => {
         console.log('in updateText');
         setTextOpen(false);
+
+        props.dispatch({
+            type: 'PUT_UPDATE',
+            payload: update
+        })
     }
+
+    console.log('update:', update);
 
 
 
@@ -98,17 +113,17 @@ function Event(props) {
                             textOpen === true ? (
                                 <input
                                     type="text"
-                                    placeholder={text}
-                                    onChange={(e) => setText(e.target.value)}
+                                    placeholder={description}
+                                    onChange={(e) => setDescription(e.target.value)}
                                 />
                             ) : (
-                                    <p>{text}</p>
+                                    <p>{description}</p>
                                 )
                         }
                     </div>
                     <div>
                         <button
-                            onClick={() => updateText()}
+                            onClick={() => updateDescription()}
 
                         >Update Text</button>
                     </div>
@@ -125,4 +140,4 @@ function Event(props) {
     )
 }
 
-export default Event;
+export default connect()(Event);
