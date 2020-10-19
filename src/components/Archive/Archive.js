@@ -33,7 +33,7 @@ function Archive(props) {
             />
             <button onClick={() => searchDate()}>Submit</button>
 
-            <div>
+            <div className="userpage__imgContainer">
                 {props.store.items.map((item, i) => {
 
                     if (props.store.user.id === item.user_id) {
@@ -46,7 +46,6 @@ function Archive(props) {
                             return (
                                 <div>
                                     <Event item={item} />
-                                    <div> TEST</div>
                                 </div>
 
                             )
@@ -58,7 +57,7 @@ function Archive(props) {
                             return (
                                 <div>
                                     <Event item={item} />
-                                    <div> TEST</div>
+
                                 </div>
 
                             )

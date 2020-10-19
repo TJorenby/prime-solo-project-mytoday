@@ -9,6 +9,8 @@ import FooterNav from '../FooterNav/FooterNav';
 import Event from '../Event/Event';
 import moment from 'moment';
 
+//Styling Imports
+import './UserPage.scss';
 
 function UserPage(props) {
   const [month, setMonth] = useState('');
@@ -27,7 +29,7 @@ function UserPage(props) {
 
   return (
     <div>
-      <h2>Today is Tuesday October 19th, 2020</h2>
+      <h2>{`${props.store.user.username}'s  Events for Tuesday October 19th, 2020`}</h2>
 
 
       <div>
@@ -45,7 +47,7 @@ function UserPage(props) {
 
             if (todayDate === dateString) {
               return (
-                <div>
+                <div className="userpage__imgContainer">
                   <Event item={item} />
                 </div>
 

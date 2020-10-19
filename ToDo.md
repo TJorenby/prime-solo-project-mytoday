@@ -7,8 +7,8 @@
     [] PNG files aren't rendering on DOM
 
 Pre-dev checklist
-    [] Custom Logo
-    [] React Calendar Build
+    [X] Custom Logo
+    [X] React Calendar Build
     [X] Moment.js Build
    
 
@@ -16,7 +16,7 @@ Pre-dev checklist
 
 
     HEADER (Component)
-        [] myToday Logo
+        [X] myToday Logo
         [] Avatar [if profile is built]
 
     FOOTER (Component)
@@ -31,15 +31,15 @@ Pre-dev checklist
 
         [] Date Display (Text - "Today Is", Function - Renders today's date in written format (Moment JS?))
 
-        [] Event List (map through events associated with today's date)
-            [] Sorted by Timestamp (ASC)
+        [X] Event List (map through events associated with today's date)
+            [X] Sorted by Timestamp (ASC)
             [] Needs to be in scroll-able format to allow Add Event Button to render at a minimum size
 
             Event Component
                 [X] Event Title
                 [X] Timestamp
                 [X] Click for details button (links to Event Details via event.id)
-        [] ADD EVENT Button (possibly on FOOTER component??)
+        [X] ADD EVENT Button (possibly on FOOTER component??)
             [] Sized According 
 
     NEW EVENT (Component)
@@ -90,18 +90,18 @@ Pre-dev checklist
         BODY
             [] Timestamp of Entry
             [] Title
-            [] Description
+            [X] Description
             [] L and R buttons (scroll between entries on associated date)
-            [] Make Highlight (checkbox star or heart icon?? - Refer to Feedback project)
+            [X] Make Highlight (checkbox star or heart icon?? - Refer to Feedback project)
 
             BUTTONS
-                [] DELETE - Removes entry from DB
-                    [] Alters (Event deleted!)
+                [X] DELETE - Removes entry from DB
+                    [] Alters (Event deleted!) 
                     [] Scrolls forward to next entry
-                [] EDIT - Can Edit following (MAY NEED NEW COMPONENT ENTIRELY FOR THIS)
-                    [] Title
-                    [] Description
-                    [] Image    
+                [X] EDIT - Can Edit following (MAY NEED NEW COMPONENT ENTIRELY FOR THIS)
+                    [] Highlight 
+                    [X] Description
+                       
     
 
     HIGHLIGHTS

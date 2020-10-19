@@ -7,7 +7,7 @@ router.use(fileUpload());
 
 // GET events from db
 router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM "events";`;
+    const queryText = `SELECT * FROM "events" ORDER BY "date" DESC;`;
 
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
@@ -41,10 +41,10 @@ router.post('/', (req, res) => {
     const fileUrl = `./uploads/${timestamp}-${file.name}`
 
     const queryText = `
-    INSERT INTO "events" ("date", "user_id", "title", "description", "file_url", "highlight")
-      VALUES ($1, $2, $3, $4, $5, $6);`;
+    INSERT INTO "events" ("date", "user_id", "description", "file_url", "highlight")
+      VALUES ($1, $2, $3, $4, $5);`;
 
-    pool.query(queryText, [date, req.body.user_id, req.body.title, req.body.description, fileUrl, req.body.highlight])
+    pool.query(queryText, [date, req.body.user_id, req.body.description, fileUrl, req.body.highlight])
         .then((result) => { res.send(result.rows); })
         .catch((err) => {
             console.error('Error completing POST ITEM query', err);

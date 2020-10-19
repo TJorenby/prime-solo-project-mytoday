@@ -1,8 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import Camera2 from '../Camera2/Camera2';
+import Camera1 from '../Camera1/Camera1';
+import Camera3 from '../Camera3/Camera3';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 
 //Styling Imports
@@ -11,6 +14,7 @@ import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
 import { FaCamera, FaImage } from 'react-icons/fa';
+
 
 
 // Modal Styling
@@ -39,12 +43,11 @@ const useStyles = makeStyles((theme) => ({
 
 const NewEventForm = (props) => {
     const [file, setFile] = useState('');
-    const [fileName, setFileName] = useState('Choose File');
-    const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [highlight, setHighlight] = useState(false);
-    const [imagePreview, setImagePreview] = useState('');
     const [camImage, setCamImage] = useState('');
+    const [camOn, setCamOn] = useState(true);
+
     const [selectImage, setSelectImage] = useState('');
     const user_id = props.store.user.id;
 
@@ -55,7 +58,6 @@ const NewEventForm = (props) => {
 
     const newEvent = {
         user_id: user_id,
-        title: title,
         description: description,
         file: file,
         highlight: highlight
@@ -63,7 +65,7 @@ const NewEventForm = (props) => {
 
 
 
-    console.log('Title:', title);
+
     console.log('Description:', description);
     console.log('file:', file);
     console.log('highlight:', highlight);
@@ -71,9 +73,8 @@ const NewEventForm = (props) => {
 
     const onChange = e => {
         setFile(e.target.files[0]);
-        setFileName(e.target.files[0].name);
         imageHandler(e.target.files[0]);
-        // setCamImage('');
+        setCamOn(false);
 
     };
 
@@ -90,6 +91,13 @@ const NewEventForm = (props) => {
         highlight ? setHighlight(false) : setHighlight(true);
     }
 
+    const toggleImageView = (e) => {
+        camOn ? setCamOn(false) : setCamOn(true);
+        setCamImage('');
+
+
+    }
+
     const imageHandler = e => {
         const reader = new FileReader();
         reader.onload = () => {
@@ -103,17 +111,43 @@ const NewEventForm = (props) => {
     }
 
 
+
+
     return (
         <div className="neweventform">
             <div className="newevent">
                 <p>New Event</p>
-                {/* <p>{moment().format('LT')}</p> */}
+                <p>{moment().format('LT')}</p>
             </div>
-            <div>
-                {camImage ? (
-                    <img src={camImage} alt="" />
-                ) : (<img src={selectImage} alt="" />)
-                }
+
+            <div className="neweventform__imageView">
+                {
+                    camOn ? (
+
+                        <div>
+                            <Camera3
+                                className="neweventform__camera"
+                                setCamImage={setCamImage}
+                                setCamOn={setCamOn}
+                            >
+                            </Camera3>
+                        </div>
+
+
+                    ) : (
+                            <div>
+                                {camImage ? (
+                                    <img src={camImage} alt="" />
+                                ) : (<img src={selectImage} alt="" />)
+                                }
+
+                            </div>
+
+
+
+                        )}
+
+
 
             </div>
             <div>
@@ -121,14 +155,7 @@ const NewEventForm = (props) => {
             </div>
             <div>
                 <div className='custom-file mb-4'>
-                    <input
-                        type='text'
-                        className='custom-title-input'
-                        id='title'
-                        value={title}
-                        placeholder='title'
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
+
                     <input
                         type='text'
                         className='custom-description-input'
@@ -167,7 +194,7 @@ const NewEventForm = (props) => {
             <div className="neweventform__imgButtonContainer">
                 <>
                     <label htmlFor="fileUpload">
-                        <FaImage />
+                        <FaImage size="7%" />
                     </label>
                     <input
                         type='file'
@@ -177,11 +204,9 @@ const NewEventForm = (props) => {
                     />
                 </>
 
-
-
                 <button
                     className="btn-styles"
-                    onClick={() => setOpen(true)}>
+                    onClick={() => toggleImageView()}>
                     <FaCamera size="10%" />
                 </button>
             </div>
@@ -191,11 +216,22 @@ const NewEventForm = (props) => {
                 onClose={() => setOpen(false)}
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <Camera2
+                    {/* <Camera2
                         className=".neweventform__camera"
                         setCamImage={setCamImage}
 
-                    />
+                    /> */}
+                    {/* <Camera1
+                        className=".neweventform__camera"
+                        setCamImage={setCamImage}
+
+                    /> */}
+                    <Camera3
+                        className=".neweventform__camera"
+                        setCamImage={setCamImage}
+                    >
+
+                    </Camera3>
                 </div>
             </Modal>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 //Styling Imports
 import Modal from '@material-ui/core/Modal';
@@ -38,6 +39,7 @@ function Event(props) {
     const [textOpen, setTextOpen] = useState(false);
     const [highlight, setHighlight] = useState(props.item.highlight);
     const [description, setDescription] = useState(props.item.description);
+    const date = moment(props.item.date).format('LLL');
 
 
     // Modal stuff
@@ -60,17 +62,18 @@ function Event(props) {
         console.log('in updateText');
         setTextOpen(false);
 
-        props.dispatch({
-            type: 'PUT_UPDATE',
-            payload: update
-        })
+
+        // props.dispatch({
+        //     type: 'PUT_UPDATE',
+        //     payload: update
+        // })
     }
 
     console.log('update:', update);
 
     const deleteEvent = (id) => {
         console.log('in deleteItem with item id:', id);
-
+        setDescription(props.item.description);
 
         props.dispatch({
             type: 'DELETE_EVENT',
@@ -98,6 +101,7 @@ function Event(props) {
             >
                 <div style={modalStyle} className={classes.paper}>
                     <h2>MODAL IS OPEN</h2>
+                    <div>{date}</div>
                     <div className="event__modalImage">
                         <img src={`${props.item.file_url}`} />
                     </div>

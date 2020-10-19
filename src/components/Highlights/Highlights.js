@@ -7,7 +7,10 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 function Highlights() {
   return (
     <div>
-      <h2>HIGHLIGHTS</h2>
+      <h2>On This Day...</h2>
+      <button>Last Week</button>
+      <button>Last Month</button>
+      <button>Last Year</button>
     </div>
   )
 }
