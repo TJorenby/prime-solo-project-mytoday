@@ -17,7 +17,7 @@ function* fetchItems(action) {
     })
 }
 
-function* deleteItem(action) {
+function* deleteEvent(action) {
     console.log('in fetchItems saga with', action);
 
     let response = yield axios({
@@ -87,7 +87,7 @@ function* addEvent(action) {
 
 function* itemsSaga() {
     yield takeLatest('FETCH_ITEMS', fetchItems);
-    yield takeLatest('DELETE_ITEM', deleteItem);
+    yield takeLatest('DELETE_EVENT', deleteEvent);
     yield takeLatest('ADD_EVENT', addEvent);
     yield takeLatest('PUT_UPDATE', putUpdate);
 }

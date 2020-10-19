@@ -4,6 +4,7 @@
     [] Screenshots are not saving do db
     [] Put Route is throwing a syntax error
     [] Login Takes user to Archive rather than Home. 
+    [] PNG files aren't rendering on DOM
 
 Pre-dev checklist
     [] Custom Logo

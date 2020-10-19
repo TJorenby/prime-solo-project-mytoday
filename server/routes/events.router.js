@@ -60,7 +60,7 @@ router.delete('/:id', (req, res) => {
     pool.query(queryText, [req.body.id])
         .then((result) => { res.send(result.rows); })
         .catch((err) => {
-            console.error('Error completing DELETE ITEM query', err);
+            console.error('Error completing DELETE EVENT query', err);
             res.sendStatus(500);
         });
 });

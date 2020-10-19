@@ -68,7 +68,14 @@ function Event(props) {
 
     console.log('update:', update);
 
+    const deleteEvent = (id) => {
+        console.log('in deleteItem with item id:', id);
 
+        this.props.dispatch({
+            type: 'DELETE_EVENT',
+            payload: id
+        })
+    }
 
 
 
