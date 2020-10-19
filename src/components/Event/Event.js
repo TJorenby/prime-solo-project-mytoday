@@ -43,7 +43,7 @@ function Event(props) {
     // Modal stuff
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
-    const [open, setOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
 
     const update = {
         description: description,
@@ -71,10 +71,12 @@ function Event(props) {
     const deleteEvent = (id) => {
         console.log('in deleteItem with item id:', id);
 
-        this.props.dispatch({
+
+        props.dispatch({
             type: 'DELETE_EVENT',
             payload: id
         })
+        setModalOpen(false);
     }
 
 
@@ -84,15 +86,15 @@ function Event(props) {
         <div>
 
             <div
-                onClick={() => setOpen(true)}
+                onClick={() => setModalOpen(true)}
             >
                 <img src={`${props.item.file_url}`} />
             </div>
 
             <Modal
 
-                open={open}
-                onClose={() => setOpen(false)}
+                open={modalOpen}
+                onClose={() => setModalOpen(false)}
             >
                 <div style={modalStyle} className={classes.paper}>
                     <h2>MODAL IS OPEN</h2>
@@ -103,7 +105,12 @@ function Event(props) {
 
                     </div>
                     <div className="modal__deleteBtn">
-                        <button>Delete</button>
+                        <button
+                            onClick={() => deleteEvent(props.item.id)}
+
+                        >Delete</button>
+
+
                         <button
                             onClick={() => setTextOpen(true)}
                         >Edit Text</button>
