@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Webcam from "react-webcam";
 import { Link } from 'react-router-dom';
+import './Camera3.scss';
 
 const WebcamComponent = () => <Webcam />;
+
+//Styling Import
+
 
 const videoConstraints = {
     width: 200,
@@ -10,25 +14,24 @@ const videoConstraints = {
     facingMode: "user"
 };
 
-function Camera3(props) {
+const Camera3 = (props) => {
     const webcamRef = React.useRef(null);
-    const [imageSrc, setImageSrc] = useState('');
-    const [camFile, setCamFile] = useState({});
+
 
     const capture = React.useCallback(
         () => {
-            const data = webcamRef.current.getScreenshot();
+            const imageSrc = webcamRef.current.getScreenshot();
 
-            setImageSrc(data);
+            props.setCamImage(imageSrc)
             props.setCamOn(false);
-            dataURLtoFile(data, 'camShot');
+            dataURLtoFile(imageSrc, 'camShot');
 
 
         },
         [webcamRef]
     );
 
-    function dataURLtoFile(dataurl, filename) {
+    const dataURLtoFile = (dataurl, filename) => {
 
         var arr = dataurl.split(','),
             mime = arr[0].match(/:(.*?);/)[1],
@@ -42,33 +45,35 @@ function Camera3(props) {
 
         let file = new File([u8arr], filename, { type: mime });
 
-        props.setCamImage(file);
-
-
+        props.setFile(file);
     }
 
-
-
-
-
-
-
-
     return (
-        <>
-            <Webcam
-                audio={false}
-                height={200}
-                ref={webcamRef}
-                screenshotFormat="image/jpeg"
-                width={200}
-                videoConstraints={videoConstraints}
-            />
+        <div className="body">
 
-            {/* <Link to="neweventform"> */}
-            <button onClick={capture}>Capture photo</button>
-            {/* </Link> */}
-        </>
+            <div className="camera">
+                <Webcam
+                    className="camera__cam"
+                    audio={false}
+                    height={200}
+                    ref={webcamRef}
+                    screenshotFormat="image/jpeg"
+                    width={200}
+                    videoConstraints={videoConstraints}
+                />
+
+                <div className="camera__btn">
+                    <button
+
+                        onClick={capture}
+                    >
+                        Capture photo</button>
+
+                </div>
+
+            </div>
+
+        </div>
     );
 }
 

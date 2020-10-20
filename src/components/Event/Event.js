@@ -49,7 +49,9 @@ function Event(props) {
 
     const update = {
         description: description,
-        highlight: highlight
+        highlight: highlight,
+        id: props.item.id
+
 
     }
 
@@ -63,10 +65,10 @@ function Event(props) {
         setTextOpen(false);
 
 
-        // props.dispatch({
-        //     type: 'PUT_UPDATE',
-        //     payload: update
-        // })
+        props.dispatch({
+            type: 'PUT_UPDATE',
+            payload: update
+        })
     }
 
     console.log('update:', update);

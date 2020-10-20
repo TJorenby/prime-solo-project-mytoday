@@ -69,7 +69,7 @@ class App extends Component {
               // logged in shows InfoPage else shows LoginPage
               exact
               path="/addevent"
-              component={NewEvent}
+              component={NewEventForm}
             />
 
             <ProtectedRoute

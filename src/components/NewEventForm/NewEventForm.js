@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NewEventForm = (props) => {
     const [file, setFile] = useState('');
+    const [camFile, setCamFile] = useState({});
     const [description, setDescription] = useState('');
     const [highlight, setHighlight] = useState(false);
     const [camImage, setCamImage] = useState('');
@@ -61,7 +62,7 @@ const NewEventForm = (props) => {
     const newEvent = {
         user_id: user_id,
         description: description,
-        file: camImage,
+        file: file,
         highlight: highlight
     }
 
@@ -115,7 +116,7 @@ const NewEventForm = (props) => {
     return (
         <div className="neweventform">
             <div className="newevent">
-                <p>STEP 2</p>
+                <p>New Event Form</p>
                 <p>{moment().format('LT')}</p>
             </div>
 
@@ -127,6 +128,7 @@ const NewEventForm = (props) => {
                             <Camera3
                                 className="neweventform__camera"
                                 setCamImage={setCamImage}
+                                setFile={setFile}
                                 setCamOn={setCamOn}
                             >
                             </Camera3>

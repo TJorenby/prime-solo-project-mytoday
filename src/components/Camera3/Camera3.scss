@@ -1,0 +1,25 @@
+.body {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: lightsalmon;
+
+}
+
+
+.camera {
+    width: 80%;
+    margin: 4% 10% 5% 10%;
+}
+
+.camera__cam {
+    width: 100%;
+    height: 100%
+}
+
+.camera__btn {
+    width: 100%;
+    position: relative;
+    margin-top: -40%;
+    background: none;
+}

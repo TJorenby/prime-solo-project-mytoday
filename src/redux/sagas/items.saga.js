@@ -42,9 +42,7 @@ function* putUpdate(action) {
     let response = yield axios({
         method: 'PUT',
         url: `/api/events/${action.payload}`,
-        data: {
-            description: action.payload
-        }
+        data: action.payload
     });
 
     console.log('back from PUT with:', response.data);

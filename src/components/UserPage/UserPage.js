@@ -47,7 +47,10 @@ function UserPage(props) {
 
             if (todayDate === dateString) {
               return (
-                <div className="userpage__imgContainer">
+                <div
+                  key={i}
+                  className="userpage__imgContainer"
+                >
                   <Event item={item} />
                 </div>
 

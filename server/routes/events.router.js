@@ -67,14 +67,14 @@ router.delete('/:id', (req, res) => {
 
 // PUT route for updating Highlight and Event description fields
 router.put('/:id', (req, res) => {
-    let id = req.params.id;
+    console.log('req.body is:', req.body);
     const queryText = `UPDATE "events" 
 	SET "description" = $1, "highlight" = $2
 	WHERE "id" = $3;`;
 
-    pool.query(queryText, [req.body.description, req.body.highlight, id])
+    pool.query(queryText, [req.body.description, req.body.highlight, req.body.id])
         .then(response => {
-            console.log('updated Event:', id, response);
+            console.log('updated Event:', response);
             res.sendStatus(200);
         })
         .catch(err => {
