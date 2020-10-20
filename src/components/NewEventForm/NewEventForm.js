@@ -40,28 +40,28 @@ const useStyles = makeStyles((theme) => ({
 
 
 const NewEventForm = (props) => {
-    const [file, setFile] = useState(props.file);
+    const [file, setFile] = useState('');
     const [description, setDescription] = useState('');
     const [highlight, setHighlight] = useState(false);
-    const [camImage, setCamImage] = useState(props.camImage);
+    const [camImage, setCamImage] = useState('');
     const [camOn, setCamOn] = useState(true);
 
     const [selectImage, setSelectImage] = useState('');
     const user_id = props.store.user.id;
 
 
-    const classes = useStyles();
-    const [modalStyle] = React.useState(getModalStyle);
-    const [open, setOpen] = useState(false);
+    // const classes = useStyles();
+    // const [modalStyle] = React.useState(getModalStyle);
+    // const [open, setOpen] = useState(false);
 
 
-    const [rating, setRating] = useState(null);
-    const [hover, setHover] = useState(null);
+    // const [rating, setRating] = useState(null);
+    // const [hover, setHover] = useState(null);
 
     const newEvent = {
         user_id: user_id,
         description: description,
-        file: file,
+        file: camImage,
         highlight: highlight
     }
 
@@ -111,9 +111,6 @@ const NewEventForm = (props) => {
 
         reader.readAsDataURL(e);
     }
-
-
-
 
     return (
         <div className="neweventform">
