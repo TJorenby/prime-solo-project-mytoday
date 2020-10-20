@@ -1,5 +1,6 @@
 import React from 'react';
 import Webcam from "react-webcam";
+import { Link } from 'react-router-dom';
 
 const WebcamComponent = () => <Webcam />;
 
@@ -31,7 +32,10 @@ function Camera3(props) {
                 width={200}
                 videoConstraints={videoConstraints}
             />
+
+            {/* <Link to="neweventform"> */}
             <button onClick={capture}>Capture photo</button>
+            {/* </Link> */}
         </>
     );
 }

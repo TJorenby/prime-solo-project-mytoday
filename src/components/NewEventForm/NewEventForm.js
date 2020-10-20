@@ -1,6 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import Camera2 from '../Camera2/Camera2';
-import Camera1 from '../Camera1/Camera1';
 import Camera3 from '../Camera3/Camera3';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -13,7 +11,7 @@ import './NewEventForm.scss';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
-import { FaCamera, FaImage } from 'react-icons/fa';
+import { FaCamera, FaImage, FaStar } from 'react-icons/fa';
 
 
 
@@ -55,6 +53,10 @@ const NewEventForm = (props) => {
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = useState(false);
+
+
+    const [rating, setRating] = useState(null);
+    const [hover, setHover] = useState(null);
 
     const newEvent = {
         user_id: user_id,
@@ -116,7 +118,7 @@ const NewEventForm = (props) => {
     return (
         <div className="neweventform">
             <div className="newevent">
-                <p>New Event</p>
+                <p>STEP 2</p>
                 <p>{moment().format('LT')}</p>
             </div>
 
@@ -164,17 +166,25 @@ const NewEventForm = (props) => {
                         placeholder='description'
                         onChange={(e) => setDescription(e.target.value)}
                     />
+                    <label>
+                        <input
+                            type='checkbox'
+                            className='neweventform__checkbox'
+                            id='highlighCheckbox'
+                            value={highlight}
+                            onClick={toggleHighlight}
+                        />
 
-                    <input
-                        type='checkbox'
-                        className='custom-checkbox-input'
-                        id='highlighCheckbox'
-                        value={highlight}
-                        onClick={toggleHighlight}
-                    />
-                    Make Highlight?
-
+                        <FaStar
+                            className="star"
+                            size={30}
+                            color={highlight ? "#ffc107" : "#C0C0C0"}
+                        // onMouseEnter={() => setHover(highlight)}
+                        // onMouseLeave={() => setHover(null)}
+                        />
+                    </label>
                 </div>
+
 
                 <Link to="user">
                     <button
@@ -216,16 +226,7 @@ const NewEventForm = (props) => {
                 onClose={() => setOpen(false)}
             >
                 <div style={modalStyle} className={classes.paper}>
-                    {/* <Camera2
-                        className=".neweventform__camera"
-                        setCamImage={setCamImage}
 
-                    /> */}
-                    {/* <Camera1
-                        className=".neweventform__camera"
-                        setCamImage={setCamImage}
-
-                    /> */}
                     <Camera3
                         className=".neweventform__camera"
                         setCamImage={setCamImage}

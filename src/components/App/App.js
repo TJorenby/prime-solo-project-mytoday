@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
 import NewEvent from '../NewEvent/NewEvent';
+import NewEventForm from '../NewEventForm/NewEventForm';
 import Header from '../Header/Header';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
@@ -83,6 +84,13 @@ class App extends Component {
               exact
               path="/Archive"
               component={Archive}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/neweventform"
+              component={NewEventForm}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will
