@@ -5,6 +5,7 @@
     [] Put Route is throwing a syntax error
     [] Login Takes user to Archive rather than Home. 
     [] PNG files aren't rendering on DOM
+    [] Hitting "Cancel" on Choose File crashes the app. 
 
 Pre-dev checklist
     [X] Custom Logo

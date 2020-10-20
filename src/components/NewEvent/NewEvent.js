@@ -12,6 +12,7 @@ import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
 import { FaCamera, FaImage, FaStar } from 'react-icons/fa';
+import NewEventForm from '../NewEventForm/NewEventForm';
 
 
 
@@ -23,7 +24,7 @@ const NewEvent = (props) => {
   const [selectImage, setSelectImage] = useState('');
 
 
-  console.log('file:', file);
+  // console.log('file:', file);
   console.log('camImage:', camImage);
 
   const onChange = e => {
@@ -37,6 +38,7 @@ const NewEvent = (props) => {
   const toggleImageView = (e) => {
     camOn ? setCamOn(false) : setCamOn(true);
     setCamImage('');
+    setFile('');
 
 
   }
@@ -72,6 +74,7 @@ const NewEvent = (props) => {
                 className="neweventform__camera"
                 setCamImage={setCamImage}
                 setCamOn={setCamOn}
+
               >
               </Camera3>
             </div>
@@ -120,6 +123,19 @@ const NewEvent = (props) => {
           onClick={() => toggleImageView()}>
           <FaCamera size="10%" />
         </button>
+      </div>
+
+      <div>
+        {
+          file || camImage ? (
+            <NewEventForm
+              camImage={camImage}
+              file={file}
+
+            />
+          ) : (null)
+
+        }
       </div>
 
 

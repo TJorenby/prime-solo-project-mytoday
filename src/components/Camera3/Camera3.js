@@ -18,6 +18,7 @@ function Camera3(props) {
             const imageSrc = webcamRef.current.getScreenshot();
             props.setCamImage(imageSrc);
             props.setCamOn(false);
+
         },
         [webcamRef]
     );

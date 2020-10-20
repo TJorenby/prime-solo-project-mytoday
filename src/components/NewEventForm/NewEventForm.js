@@ -40,10 +40,10 @@ const useStyles = makeStyles((theme) => ({
 
 
 const NewEventForm = (props) => {
-    const [file, setFile] = useState('');
+    const [file, setFile] = useState(props.file);
     const [description, setDescription] = useState('');
     const [highlight, setHighlight] = useState(false);
-    const [camImage, setCamImage] = useState('');
+    const [camImage, setCamImage] = useState(props.camImage);
     const [camOn, setCamOn] = useState(true);
 
     const [selectImage, setSelectImage] = useState('');
@@ -69,9 +69,9 @@ const NewEventForm = (props) => {
 
 
     console.log('Description:', description);
-    console.log('file:', file);
     console.log('highlight:', highlight);
-    console.log('camImage:', camImage);
+    console.log('New Event file:', file);
+    console.log('New Event camImage:', camImage);
 
     const onChange = e => {
         setFile(e.target.files[0]);
@@ -149,57 +149,61 @@ const NewEventForm = (props) => {
 
                         )}
 
-
-
             </div>
             <div>
 
             </div>
-            <div>
-                <div className='custom-file mb-4'>
-
-                    <input
-                        type='text'
-                        className='custom-description-input'
-                        id='description'
-                        value={description}
-                        placeholder='description'
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-                    <label>
-                        <input
-                            type='checkbox'
-                            className='neweventform__checkbox'
-                            id='highlighCheckbox'
-                            value={highlight}
-                            onClick={toggleHighlight}
-                        />
-
-                        <FaStar
-                            className="star"
-                            size={30}
-                            color={highlight ? "#ffc107" : "#C0C0C0"}
-                        // onMouseEnter={() => setHover(highlight)}
-                        // onMouseLeave={() => setHover(null)}
-                        />
-                    </label>
-                </div>
 
 
-                <Link to="user">
-                    <button
+            <div className="newevent__form">
 
-                        onClick={() => onSubmit()}
-                    >Submit</button>
-                </Link>
 
-            </div>
-
-            <Link to="/user">
                 <div>
-                    <button>Cancel</button>
+                    <div className='custom-file mb-4'>
+
+                        <input
+                            type='text'
+                            className='custom-description-input'
+                            id='description'
+                            value={description}
+                            placeholder='description'
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                        <label>
+                            <input
+                                type='checkbox'
+                                className='neweventform__checkbox'
+                                id='highlighCheckbox'
+                                value={highlight}
+                                onClick={toggleHighlight}
+                            />
+
+                            <FaStar
+                                className="star"
+                                size={30}
+                                color={highlight ? "#ffc107" : "#C0C0C0"}
+                            // onMouseEnter={() => setHover(highlight)}
+                            // onMouseLeave={() => setHover(null)}
+                            />
+                        </label>
+                    </div>
+
+
+                    <Link to="user">
+                        <button
+
+                            onClick={() => onSubmit()}
+                        >Submit</button>
+                    </Link>
+
                 </div>
-            </Link>
+
+                <Link to="/user">
+                    <div>
+                        <button>Cancel</button>
+                    </div>
+                </Link>
+            </div>
 
             <div className="neweventform__imgButtonContainer">
                 <>
@@ -221,7 +225,7 @@ const NewEventForm = (props) => {
                 </button>
             </div>
 
-            <Modal
+            {/* <Modal
                 open={open}
                 onClose={() => setOpen(false)}
             >
@@ -234,7 +238,7 @@ const NewEventForm = (props) => {
 
                     </Camera3>
                 </div>
-            </Modal>
+            </Modal> */}
 
 
         </div>
