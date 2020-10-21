@@ -1,46 +1,47 @@
+@import '../scss/main.scss';
 
-.neweventform{
-    background-color: white;
-    // max-width: 500px;
-    // height: 100vh;
-    border: 1px solid lightgray;
-    // margin-bottom: 45px;
-}
+// .neweventform{
+//     background-color: white;
+//     // max-width: 500px;
+//     // height: 100vh;
+//     border: 1px solid lightgray;
+//     // margin-bottom: 45px;
+// }
 
 
-.imgPreview {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-}
+// .imgPreview {
+//     width: 100%;
+//     height: auto;
+//     object-fit: contain;
+//     border-top: 1px solid lightgray;
+//     border-bottom: 1px solid lightgray;
+// }
 
-.neweventform__imageInput, input[type="file"]{
-    display: none;
-}
+// .neweventform__imageInput, input[type="file"]{
+//     display: none;
+// }
 
-.imgPreview, .customFileUpload{
-    color: lightcoral;
-    font-size: 22px;
-    font-weight: 500;
-    padding: 6px, 12px;
-    cursor: pointer;
+// .imgPreview, .customFileUpload{
+//     color: lightcoral;
+//     font-size: 22px;
+//     font-weight: 500;
+//     padding: 6px, 12px;
+//     cursor: pointer;
 
-}
+// }
 
-.neweventform__camera{
-    display: flex;
-    flex-direction: column;
-  }
+// .neweventform__camera{
+//     display: flex;
+//     flex-direction: column;
+//   }
 
-.btn-styles {
-    background: none;
-    border: none;
-    outline: none;
+// .btn-styles {
+//     background: none;
+//     border: none;
+//     outline: none;
     
-}
+// }
 
-input[type="checkbox"]{
-    display: none;
-}
+// input[type="checkbox"]{
+//     display: none;
+// }

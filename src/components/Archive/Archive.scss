@@ -1,17 +1,21 @@
 .archive__imgContainer{
-    background-color: white;
-    max-width: 1000px;
-    border: 1px solid lightgray;
-    margin-bottom: 45px;
-    display: flex;
-    background-color: red;
+   overflow: auto;
+   height: auto;
 
 }
 
 .imgContainer__event {
-    width: 200px;
-    height: 200px; 
+    width: 120px;
+    height: 120px; 
     display: inline-block; 
-    background-size: cover;
-    background-position: center;
+    // background-size: cover;
+    // background-position: center;
+}
+
+.archive__monthPicker {
+    height: 110px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: lightseagreen;
 }

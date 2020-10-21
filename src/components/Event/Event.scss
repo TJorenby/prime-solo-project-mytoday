@@ -1,3 +1,24 @@
+.event {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    // max-width: 500px;
+    border: 1px solid lightgray;
+    background-color: blue;
+    display: flex;
+
+}
+
+.event__imgClick {
+    width: 120px;
+    height: 120px;
+    // display: inline-block; 
+    // object-fit: cover;
+    background-position: center;
+    background-color: green;
+}
+
+
 .event__modal {
     background-color: white;
     max-width: 500px;
@@ -13,19 +34,3 @@
     border-bottom: 1px solid lightgray;
 }
 
-.event {
-    background-color: white;
-    // max-width: 500px;
-    border: 1px solid lightgray;
-    background-color: blue;
-
-}
-
-.event__imgClick {
-    width: 200px;
-    height: 200px; 
-    display: inline-block; 
-    object-fit: cover;
-    background-position: center;
-    background-color: green;
-}

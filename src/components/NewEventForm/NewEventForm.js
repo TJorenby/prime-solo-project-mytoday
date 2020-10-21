@@ -114,7 +114,7 @@ const NewEventForm = (props) => {
     }
 
     return (
-        <div>
+        <div className="background-color">
             <div className="newevent">
                 <Link to="/user">
                     <div>

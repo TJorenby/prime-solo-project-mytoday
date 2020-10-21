@@ -5,9 +5,11 @@ import ItemTable from '../ItemTable/ItemTable';
 import MonthPicker from '../MonthPicker/MonthPicker';
 import Event from '../Event/Event';
 import moment from 'moment';
+import { VirtuosoGrid } from 'react-virtuoso';
 
 //Styling Imports
 import './Archive.scss';
+import ScrollableContainer from '../ScrollableContainer/ScrollableContainer.js';
 
 
 
@@ -16,6 +18,7 @@ function Archive(props) {
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
     const [monthYear, setMonthYear] = useState('');
+    const [eventItems, setEventItems] = useState([]);
     const test = [props.store.items];
     console.log('month is:', month);
     console.log('props items:', test);
@@ -27,55 +30,86 @@ function Archive(props) {
     console.log('month year is:', monthYear);
 
 
+    const eventsMap = () => {
+        {
+            props.store.items.map((item, i) => {
+
+                if (props.store.user.id === item.user_id) {
+                    let eventElement = <Event item={item} />
+
+                    setEventItems(eventItems.concat(eventElement));
+                }
+
+
+            })
+        }
+
+    }
+
+    console.log('eventItems are:', eventItems);
+
+
     return (
         <div>
-            <h2>Archive</h2>
-            <MonthPicker
-                setMonth={setMonth}
-                setYear={setYear}
-            />
-            <button onClick={() => searchDate()}>Submit</button>
+
+            <div className="archive__monthPicker">
+                {/* <h2>Archive</h2> */}
+                <MonthPicker
+                    setMonth={setMonth}
+                    setYear={setYear}
+                />
+                <button onClick={() => searchDate()}>Submit</button>
+            </div>
+            <div>
+                {/* <button
+                    onClick={() => eventsMap()}
+                >Trigger</button> */}
+            </div>
 
             <div className="archive__imgContainer">
-                {props.store.items.map((item, i) => {
+                <table>
+                    <tbody>
+                        {props.store.items.map((item, i) => {
 
-                    if (props.store.user.id === item.user_id) {
-                        console.log('item.date is:', item.date);
-                        let dateString = moment(item.date).format('MMMM YYYY').toString();
-                        console.log('dateString is:', dateString);
+                            if (props.store.user.id === item.user_id) {
+                                // console.log('item.date is:', item.date);
+                                let dateString = moment(item.date).format('MMMM YYYY').toString();
+                                // console.log('dateString is:', dateString);
 
-                        if (monthYear === '') {
+                                if (monthYear === '') {
 
-                            return (
-                                <div className="imgContainer__event"  >
-                                    <Event
-                                        item={item}
-                                    />
+                                    return (
+                                        <tr className="imgContainer__event"  >
+                                            <td>
+                                                <Event item={item} />
+                                            </td>
 
-                                </div>
-                            )
-
-                        }
-
-                        else if (dateString === monthYear) {
-                            return (
-                                <div>
-                                    <Event item={item} />
-
-                                </div>
-
-                            )
-                        }
+                                        </tr>
 
 
-                    }
 
+                                    )
 
-                })}
+                                }
 
+                                else if (dateString === monthYear) {
+                                    return (
+                                        <tr className="imgContainer__event"  >
+                                            <td>
+                                                <Event item={item} />
+                                            </td>
 
+                                        </tr>
+
+                                    )
+                                }
+                            }
+                        })}
+                    </tbody>
+                </table>
 
             </div>
+
 
 
 

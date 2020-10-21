@@ -38,9 +38,11 @@ class App extends Component {
       <Router>
         <div>
 
-          {this.props.store.user.id ? (
-            <Header />
-          ) : (null)}
+          {/* {this.props.store.user.id ? (
+            <div className="header">
+              <Header />
+            </div>
+          ) : (null)} */}
 
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -137,7 +139,9 @@ class App extends Component {
             <Route render={() => <h1>404</h1>} />
           </Switch>
           {this.props.store.user.id ? (
-            <FooterNav />
+            <div className="footer">
+              <FooterNav />
+            </div>
           ) : (null)}
         </div>
       </Router>
