@@ -1,11 +1,12 @@
 --myToday Master ToDo List--
 
 --THINGS TO FIX--
-    [] Screenshots are not saving do db
-    [] Put Route is throwing a syntax error
+    [X] Screenshots are not saving do db
+    [X] Put Route is throwing a syntax error
     [] Login Takes user to Archive rather than Home. 
     [] PNG files aren't rendering on DOM
     [] Hitting "Cancel" on Choose File crashes the app. 
+    [] Camera Images and Files are not consistent sizing. 
 
 Pre-dev checklist
     [X] Custom Logo

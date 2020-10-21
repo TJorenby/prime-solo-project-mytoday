@@ -6,6 +6,7 @@ import moment from 'moment';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
+import './Event.scss';
 
 
 
@@ -88,12 +89,15 @@ function Event(props) {
 
 
     return (
-        <div>
+        <div className="event">
 
             <div
                 onClick={() => setModalOpen(true)}
+
             >
-                <img src={`${props.item.file_url}`} />
+                <img
+                    className="event__imgClick"
+                    src={`${props.item.file_url}`} />
             </div>
 
             <Modal
@@ -102,7 +106,6 @@ function Event(props) {
                 onClose={() => setModalOpen(false)}
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <h2>MODAL IS OPEN</h2>
                     <div>{date}</div>
                     <div className="event__modalImage">
                         <img src={`${props.item.file_url}`} />
@@ -110,6 +113,7 @@ function Event(props) {
                     <div className="event__modalText">
 
                     </div>
+
                     <div className="modal__deleteBtn">
                         <button
                             onClick={() => deleteEvent(props.item.id)}
@@ -120,6 +124,7 @@ function Event(props) {
                         <button
                             onClick={() => setTextOpen(true)}
                         >Edit Text</button>
+
                         <input
                             type='checkbox'
                             className='custom-checkbox-input'
@@ -128,6 +133,7 @@ function Event(props) {
                             onClick={toggleHighlight}
                         />
                     </div>
+
                     <div>
                         {
                             textOpen === true ? (
@@ -141,6 +147,7 @@ function Event(props) {
                                 )
                         }
                     </div>
+
                     <div>
                         <button
                             onClick={() => updateDescription()}
@@ -148,14 +155,8 @@ function Event(props) {
                         >Update Text</button>
                     </div>
 
-
                 </div >
             </Modal >
-
-
-
-
-
         </div >
     )
 }

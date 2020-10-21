@@ -2,23 +2,34 @@ import React from 'react'
 import './Footer.css'
 import { Link, Route } from 'react-router-dom';
 
+//Styling Imports
+import { BsPlusCircle } from "react-icons/bs";
+
 function FooterNav() {
     return (
         <div className="footer">
-            <Link to="/archive">
-                <button>
-                    Archive
+            <div className="footer__btns">
+                <Link to="/archive">
+                    <button>
+                        Archive
             </button>
-            </Link>
-            <Link to="/addevent">
-                <button>Add Event</button>
-            </Link>
+                </Link>
+                <Link to="/addevent">
+                    <div>
+                        <button
+                            className="btn-styles"
 
-            <Link to="/highlights">
-                <button>
-                    Highlights
+                        >
+                            <BsPlusCircle size="10%" color="white" /></button>
+                    </div>
+                </Link>
+
+                <Link to="/highlights">
+                    <button>
+                        Highlights
             </button>
-            </Link>
+                </Link>
+            </div>
 
         </div>
     )

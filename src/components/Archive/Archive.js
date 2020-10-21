@@ -6,6 +6,9 @@ import MonthPicker from '../MonthPicker/MonthPicker';
 import Event from '../Event/Event';
 import moment from 'moment';
 
+//Styling Imports
+import './Archive.scss';
+
 
 
 
@@ -33,7 +36,7 @@ function Archive(props) {
             />
             <button onClick={() => searchDate()}>Submit</button>
 
-            <div className="userpage__imgContainer">
+            <div className="archive__imgContainer">
                 {props.store.items.map((item, i) => {
 
                     if (props.store.user.id === item.user_id) {
@@ -44,14 +47,15 @@ function Archive(props) {
                         if (monthYear === '') {
 
                             return (
-                                <div>
-                                    <Event item={item} />
-                                </div>
+                                <div className="imgContainer__event"  >
+                                    <Event
+                                        item={item}
+                                    />
 
+                                </div>
                             )
 
                         }
-
 
                         else if (dateString === monthYear) {
                             return (
@@ -69,7 +73,7 @@ function Archive(props) {
 
                 })}
 
-                {/* <ItemTable /> */}
+
 
             </div>
 

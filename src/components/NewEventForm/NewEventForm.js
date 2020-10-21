@@ -11,7 +11,7 @@ import './NewEventForm.scss';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
-import { FaCamera, FaImage, FaStar } from 'react-icons/fa';
+import { FaCamera, FaImage, FaStar, FaRegTrashAlt } from 'react-icons/fa';
 
 
 
@@ -114,9 +114,30 @@ const NewEventForm = (props) => {
     }
 
     return (
-        <div className="neweventform">
+        <div>
             <div className="newevent">
-                <p>New Event Form</p>
+                <Link to="/user">
+                    <div>
+                        <button className="btn-styles">
+                            Cancel
+                        </button>
+                    </div>
+                </Link>
+                <div>
+                    {
+                        camOn ? (null) : (
+                            <Link to="user">
+                                <div>
+                                    <button
+                                        className="btn-styles"
+                                        onClick={() => onSubmit()}
+                                    >Submit</button>
+                                </div>
+                            </Link>)
+
+
+                    }
+                </div>
                 <p>{moment().format('LT')}</p>
             </div>
 
@@ -149,10 +170,6 @@ const NewEventForm = (props) => {
                         )}
 
             </div>
-            <div>
-
-            </div>
-
 
             <div className="newevent__form">
 
@@ -187,25 +204,13 @@ const NewEventForm = (props) => {
                         </label>
                     </div>
 
-
-                    <Link to="user">
-                        <button
-
-                            onClick={() => onSubmit()}
-                        >Submit</button>
-                    </Link>
-
                 </div>
 
-                <Link to="/user">
-                    <div>
-                        <button>Cancel</button>
-                    </div>
-                </Link>
+
             </div>
 
             <div className="neweventform__imgButtonContainer">
-                <>
+                <div>
                     <label htmlFor="fileUpload">
                         <FaImage size="7%" />
                     </label>
@@ -215,31 +220,17 @@ const NewEventForm = (props) => {
                         id='fileUpload'
                         onChange={onChange}
                     />
-                </>
-
-                <button
-                    className="btn-styles"
-                    onClick={() => toggleImageView()}>
-                    <FaCamera size="10%" />
-                </button>
-            </div>
-
-            {/* <Modal
-                open={open}
-                onClose={() => setOpen(false)}
-            >
-                <div style={modalStyle} className={classes.paper}>
-
-                    <Camera3
-                        className=".neweventform__camera"
-                        setCamImage={setCamImage}
-                    >
-
-                    </Camera3>
                 </div>
-            </Modal> */}
-
-
+                <div>
+                    {camOn ? (null) : (
+                        <button
+                            className="btn-styles"
+                            onClick={() => toggleImageView()}>
+                            <FaCamera size="10%" />
+                        </button>
+                    )}
+                </div>
+            </div>
         </div>
     );
 };
