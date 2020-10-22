@@ -9,8 +9,8 @@ const WebcamComponent = () => <Webcam />;
 
 
 const videoConstraints = {
-    width: 200,
-    height: 200,
+    width: 100,
+    height: 100,
     facingMode: "user"
 };
 
@@ -49,17 +49,22 @@ const Camera3 = (props) => {
     }
 
     return (
-        <div className="body">
+        <div className="camera__body">
 
             <div className="camera">
                 <Webcam
-                    className="camera__cam"
                     audio={false}
-                    height={200}
+                    height={375}
+                    width={375}
                     ref={webcamRef}
                     screenshotFormat="image/jpeg"
-                    width={200}
                     videoConstraints={videoConstraints}
+                    imageSmoothing={true}
+                    minScreenshotHeight={200}
+
+                    screenshotQuality={0.92}
+
+
                 />
 
                 <div className="camera__btn">

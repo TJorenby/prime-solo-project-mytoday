@@ -1,42 +1,50 @@
 @import '../scss/main.scss';
 
-.neweventform{
-    background-color: white;
-    // max-width: 500px;
-    // height: 100vh;
-    border: 1px solid lightgray;
-    // margin-bottom: 45px;
+
+
+
+
+
+.neweventform__imageView  {
+    
 }
 
-
-.imgPreview {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+.neweventform__imgPreview {
+    width: 100vw;
+    height: 350px;
+    // object-fit: contain;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
-}
-
-.neweventform__imageInput, input[type="file"]{
-    display: none;
-}
-
-.imgPreview, .customFileUpload{
-    color: lightcoral;
-    font-size: 22px;
-    font-weight: 500;
-    padding: 6px, 12px;
-    cursor: pointer;
+    margin: 0, 5vw;
 
 }
+
 
 .neweventform__camera{
-    display: flex;
-    flex-direction: column;
+    height: 300px;
+    width: 100%;
+    
+  }
+
+  .newevent__form {
+      margin-top: 50%;
+  }
+
+  .newevent__topBtns {
+      display: flex;
   }
 
 
 
 input[type="checkbox"]{
+    display: none;
+}
+
+img {
+    height: 375px;
+    width: 100%;
+}
+
+.neweventform__imageInput, input[type="file"]{
     display: none;
 }

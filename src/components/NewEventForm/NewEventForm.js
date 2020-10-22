@@ -114,29 +114,31 @@ const NewEventForm = (props) => {
     }
 
     return (
-        <div className="background-color">
+        <div>
             <div className="newevent">
-                <Link to="/user">
-                    <div>
-                        <button className="btn-styles">
-                            Cancel
+                <div className="newevent__topBtns">
+                    <Link to="/user">
+                        <div>
+                            <button className="btn-styles">
+                                Cancel
                         </button>
+                        </div>
+                    </Link>
+                    <div>
+                        {
+                            camOn ? (null) : (
+                                <Link to="user">
+                                    <div>
+                                        <button
+
+                                            onClick={() => onSubmit()}
+                                        >Submit</button>
+                                    </div>
+                                </Link>)
+
+
+                        }
                     </div>
-                </Link>
-                <div>
-                    {
-                        camOn ? (null) : (
-                            <Link to="user">
-                                <div>
-                                    <button
-                                        className="btn-styles"
-                                        onClick={() => onSubmit()}
-                                    >Submit</button>
-                                </div>
-                            </Link>)
-
-
-                    }
                 </div>
                 <p>{moment().format('LT')}</p>
             </div>
@@ -147,7 +149,6 @@ const NewEventForm = (props) => {
 
                         <div>
                             <Camera3
-                                className="neweventform__camera"
                                 setCamImage={setCamImage}
                                 setFile={setFile}
                                 setCamOn={setCamOn}
@@ -157,7 +158,7 @@ const NewEventForm = (props) => {
 
 
                     ) : (
-                            <div>
+                            <div className="neweventform__imgPreview">
                                 {camImage ? (
                                     <img src={camImage} alt="" />
                                 ) : (<img src={selectImage} alt="" />)
@@ -231,7 +232,7 @@ const NewEventForm = (props) => {
                     )}
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
