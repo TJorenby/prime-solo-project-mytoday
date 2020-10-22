@@ -12,7 +12,7 @@ import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
 import { FaCamera, FaImage, FaStar, FaRegTrashAlt } from 'react-icons/fa';
-import { BiImage, BiCamera, BiPin } from "react-icons/bi";
+import { BiImage, BiCamera, BiPin, BiCircle } from "react-icons/bi";
 
 
 
@@ -67,8 +67,6 @@ const NewEventForm = (props) => {
     const toggleImageView = (e) => {
         camOn ? setCamOn(false) : setCamOn(true);
         setCamImage('');
-
-
     }
 
     const imageHandler = e => {
@@ -160,6 +158,8 @@ const NewEventForm = (props) => {
                                 className="btn-hide"
                                 onClick={() => toggleImageView()}>
                             </button>
+
+
                         </div>
                     )}
                 </div>
@@ -186,7 +186,7 @@ const NewEventForm = (props) => {
                             />
 
                             <BiPin
-                                className="star"
+
                                 size={30}
                                 color={highlight ? "red" : "blue"}
                             />

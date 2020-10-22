@@ -1,7 +1,7 @@
 .camera__body{
     width: 100%;
-    height: auto;
-    overflow: hidden;
+    height: 350px;
+    // overflow: hidden;
     background-color: lightsalmon;
 
 }
@@ -16,8 +16,10 @@
 
 
 .camera__btn {
-    width: 100%;
-    position: relative;
-    margin-top: -40%;
+    width: 50%;
+    justify-content: center;
+    margin-top: 20%;
+    margin-left: 35%;
+    // margin-right: 50%;
     background: none;
 }

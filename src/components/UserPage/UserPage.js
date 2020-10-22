@@ -36,9 +36,11 @@ function UserPage(props) {
                   className="userpage__eventContainer"
                 >
                   <Event item={item} />
+
                   <div className="eventContainer__date">
                     {moment(item.date).format('h:mm a')}
                   </div>
+
                 </div>
 
               )

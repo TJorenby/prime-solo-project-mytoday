@@ -25,6 +25,7 @@ const Camera3 = (props) => {
             props.setCamImage(imageSrc)
             props.setCamOn(false);
             dataURLtoFile(imageSrc, 'camShot');
+            console.log('imageSrc is:', imageSrc);
 
 
         },

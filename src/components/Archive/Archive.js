@@ -9,19 +9,10 @@ import moment from 'moment';
 //Styling Imports
 import './Archive.scss';
 
-
-
-
-
-
-
-
-
 function Archive(props) {
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
     const [monthYear, setMonthYear] = useState('');
-    const [eventItems, setEventItems] = useState([]);
     const test = [props.store.items];
     console.log('month is:', month);
     console.log('props items:', test);
@@ -94,12 +85,6 @@ function Archive(props) {
                 </table>
 
             </div>
-
-
-
-
-
-
         </div>
     )
 }
