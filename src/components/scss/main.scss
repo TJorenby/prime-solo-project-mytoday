@@ -2,20 +2,44 @@
     background-color: lightcyan;
 }
 
+.body {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.header{
+    width: 100%;
+    // min-height: 60px;
+    background: red;
+    top: 0;
+    
+  }
+
+
+.center{
+    width: 100%;
+    max-height: calc(100% - 200px);
+    overflow-y: scroll;
+    // padding: 0px 10% !important;
+    
+}
 
 
 
 .footer{
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: rgb(235, 195, 64);
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    height: 20px;
+    min-height: 40px;
+    background: red;
+    bottom: 0;
+    position: fixed;
+    
   }
 
+
+  
 
 
   
