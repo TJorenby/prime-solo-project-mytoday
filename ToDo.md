@@ -7,6 +7,7 @@
     [] PNG files aren't rendering on DOM
     [] Hitting "Cancel" on Choose File crashes the app. 
     [] Camera Images and Files are not consistent sizing. 
+    [] Logo
 
 Pre-dev checklist
     [X] Custom Logo
@@ -22,12 +23,12 @@ Pre-dev checklist
         [] Avatar [if profile is built]
 
     FOOTER (Component)
-        [] Buttons
+        [X] Buttons
             [X] Highlights - Routes to Highlights Page
-            [] Today - Routes to Home Screen
+            [X] Today - Routes to Home Screen
             [X] Archives - Links to Archives
             [X] ADD Event (possibly)??
-        [] Styled
+        [X] Styled
 
     HOME SCREEN (Component)
 
@@ -35,7 +36,7 @@ Pre-dev checklist
 
         [X] Event List (map through events associated with today's date)
             [X] Sorted by Timestamp (ASC)
-            [] Needs to be in scroll-able format to allow Add Event Button to render at a minimum size
+            [X] Needs to be in scroll-able format to allow Add Event Button to render at a minimum size
 
             Event Component
                 [X] Event Title
@@ -76,14 +77,14 @@ Pre-dev checklist
                 [] Pulls a Random Event from the DB as a result
         
         Calendar
-            [] Calendar Component
+            [X] Calendar Component
             [] Is Collapse-able?
-            [] Clicking Dates will render associated results
+            [X] Clicking Dates will render associated results
 
         Results
-            [] Sorted by Timestamp (ASC)
-            [] Timestamp will act as title
-            [] "Click to View" button pulls up EVENT component   
+            [X] Sorted by Timestamp (ASC)
+            [X] Timestamp will act as title
+            [X] "Click to View" button pulls up EVENT component   
 
     EVENT (Component)
         DATE BAR

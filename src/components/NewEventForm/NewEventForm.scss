@@ -1,16 +1,12 @@
 @import '../scss/main.scss';
 
 
-
-
-
-
 .neweventform__imageView  {
     
 }
 
 .neweventform__imgPreview {
-    width: 100vw;
+    width: 100%;
     height: 350px;
     // object-fit: contain;
     border-top: 1px solid lightgray;
@@ -18,6 +14,15 @@
     margin: 0, 5vw;
 
 }
+
+.neweventform__imgButtonContainer {
+    width: 100vw;
+    margin-top: 30px;
+    object-position: center; 
+    display: flex; 
+}
+
+
 
 
 .neweventform__camera{
@@ -27,11 +32,12 @@
   }
 
   .newevent__form {
-      margin-top: 50%;
+      margin-top: 20%;
   }
 
   .newevent__topBtns {
       display: flex;
+      justify-content: space-between;
   }
 
 

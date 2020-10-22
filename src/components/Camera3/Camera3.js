@@ -73,7 +73,6 @@ const Camera3 = (props) => {
                         onClick={capture}
                     >
                         Capture photo</button>
-
                 </div>
 
             </div>

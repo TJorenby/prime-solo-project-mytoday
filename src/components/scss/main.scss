@@ -14,6 +14,9 @@
     background-color: $background;
     border-top: 1rem;
     top: 0;
+    // object-fit: contain;
+display: flex;
+  justify-content: space-between;
     
   }
 
@@ -41,6 +44,10 @@
       background-color: lightseagreen;
       object-fit: contain;
       
+  }
+
+  .btn-hide{
+      display: none;
   }
 
 

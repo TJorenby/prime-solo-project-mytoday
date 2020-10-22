@@ -4,8 +4,6 @@ import { Link, Route } from 'react-router-dom';
 
 //Styling Imports
 import './FooterNav.scss'
-import { BsPlusCircle } from "react-icons/bs";
-import { AiFillHome } from "react-icons/ai";
 import { BiPhotoAlbum, BiHomeAlt, BiCamera, BiPin } from "react-icons/bi";
 
 function FooterNav() {

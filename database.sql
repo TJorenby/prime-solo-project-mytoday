@@ -8,10 +8,13 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
-CREATE TABLE "item" (
-    "id" SERIAL PRIMARY KEY,
-    "description" VARCHAR (80) NOT NULL,
-    "image_url" VARCHAR (2083),
-    "user_id" INT REFERENCES "user"
+CREATE TABLE "events" (
+	id SERIAL PRIMARY KEY,
+	date TIMESTAMP,
+	user_id INT REFERENCES "user",
+	description VARCHAR(2000),
+	file_url VARCHAR (2000), 
+	highlight BOOLEAN
+	
 );
 

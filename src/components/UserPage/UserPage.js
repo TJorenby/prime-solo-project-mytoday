@@ -10,24 +10,14 @@ import './UserPage.scss';
 
 function UserPage(props) {
   const [month, setMonth] = useState('');
-  const [year, setYear] = useState('');
-  const [monthYear, setMonthYear] = useState('');
   const test = [props.store.items];
   console.log('month is:', month);
   console.log('props items:', test);
 
 
-  const searchDate = () => {
-    setMonthYear(`${month} ${year}`);
-  }
-  console.log('month year is:', monthYear);
-
-
   return (
     <div>
-      <h2>{`${props.store.user.username}'s  Events for Tuesday October 19th, 2020`}</h2>
-
-
+      <h4>{`It's ${moment().format('LT')} on ${moment().format('MMMM Do YYYY')} `}</h4>
       <div>
         {props.store.items.map((item, i) => {
 
@@ -49,29 +39,13 @@ function UserPage(props) {
                   <div className="eventContainer__date">
                     {moment(item.date).format('h:mm a')}
                   </div>
-                  {/* <div>
-                    {item.description}
-                  </div> */}
                 </div>
 
               )
             }
-
-
-
-
-
           }
         })}
-
-        {/* <ItemTable /> */}
-
       </div>
-
-
-
-
-
     </div>
   )
 }

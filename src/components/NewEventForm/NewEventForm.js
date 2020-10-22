@@ -12,31 +12,12 @@ import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
 import { FaCamera, FaImage, FaStar, FaRegTrashAlt } from 'react-icons/fa';
+import { BiImage, BiCamera, BiPin } from "react-icons/bi";
 
 
 
-// Modal Styling
-function getModalStyle() {
-    const top = 50;
-    const left = 50;
 
-    return {
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
-    };
-}
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        position: 'absolute',
-        width: 400,
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-    },
-}));
 
 
 const NewEventForm = (props) => {
@@ -51,23 +32,12 @@ const NewEventForm = (props) => {
     const user_id = props.store.user.id;
 
 
-    // const classes = useStyles();
-    // const [modalStyle] = React.useState(getModalStyle);
-    // const [open, setOpen] = useState(false);
-
-
-    // const [rating, setRating] = useState(null);
-    // const [hover, setHover] = useState(null);
-
     const newEvent = {
         user_id: user_id,
         description: description,
         file: file,
         highlight: highlight
     }
-
-
-
 
     console.log('Description:', description);
     console.log('highlight:', highlight);
@@ -135,8 +105,6 @@ const NewEventForm = (props) => {
                                         >Submit</button>
                                     </div>
                                 </Link>)
-
-
                         }
                     </div>
                 </div>
@@ -165,25 +133,47 @@ const NewEventForm = (props) => {
                                 }
 
                             </div>
-
-
-
                         )}
 
             </div>
 
-            <div className="newevent__form">
-
-
+            <div className="neweventform__imgButtonContainer">
+                <div className="imgButtonContainer__imgBtn">
+                    <label htmlFor="fileUpload">
+                        <BiImage size="30px" />
+                    </label>
+                    <input
+                        type='file'
+                        className="neweventform__imageInput"
+                        id='fileUpload'
+                        onChange={onChange}
+                    />
+                </div>
                 <div>
-                    <div className='custom-file mb-4'>
+                    {camOn ? (null) : (
+                        <div imgButtonContainer__imgBtn>
+                            <label htmlFor="camBtn">
+                                <BiCamera size="30px" />
+                            </label>
+                            <button
+                                id="camBtn"
+                                className="btn-hide"
+                                onClick={() => toggleImageView()}>
+                            </button>
+                        </div>
+                    )}
+                </div>
+            </div>
 
-                        <input
+            <div className="newevent__form">
+                <div>
+                    <div className=''>
+
+                        <Input
                             type='text'
-                            className='custom-description-input'
                             id='description'
                             value={description}
-                            placeholder='description'
+                            placeholder='caption'
                             onChange={(e) => setDescription(e.target.value)}
                         />
                         <label>
@@ -195,41 +185,14 @@ const NewEventForm = (props) => {
                                 onClick={toggleHighlight}
                             />
 
-                            <FaStar
+                            <BiPin
                                 className="star"
                                 size={30}
-                                color={highlight ? "#ffc107" : "#C0C0C0"}
-                            // onMouseEnter={() => setHover(highlight)}
-                            // onMouseLeave={() => setHover(null)}
+                                color={highlight ? "red" : "white"}
                             />
                         </label>
                     </div>
 
-                </div>
-
-
-            </div>
-
-            <div className="neweventform__imgButtonContainer">
-                <div>
-                    <label htmlFor="fileUpload">
-                        <FaImage size="7%" />
-                    </label>
-                    <input
-                        type='file'
-                        className="neweventform__imageInput"
-                        id='fileUpload'
-                        onChange={onChange}
-                    />
-                </div>
-                <div>
-                    {camOn ? (null) : (
-                        <button
-                            className="btn-styles"
-                            onClick={() => toggleImageView()}>
-                            <FaCamera size="10%" />
-                        </button>
-                    )}
                 </div>
             </div>
         </div >
