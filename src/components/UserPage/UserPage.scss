@@ -1,4 +1,17 @@
-.userpage__imgContainer {
-    height: 100px;
-    width: 100px;
+@import '../scss/colors.scss';
+
+.userpage__eventContainer {
+    // height: 100px;
+    width: 100%;
+    background-color: $container;
+    display: flex;
+    border-radius: 0.5rem;
+    // justify-content: space-between;
+}
+
+.eventContainer__date {
+    justify-content: center;
+    margin: auto;
+    color: white;
+
 }

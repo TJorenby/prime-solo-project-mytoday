@@ -39,15 +39,19 @@ function UserPage(props) {
             let todayDate = moment(new Date()).format('ll');
             console.log('todayDate is:', todayDate);
 
-
-
             if (todayDate === dateString) {
               return (
                 <div
                   key={i}
-                  className="userpage__imgContainer"
+                  className="userpage__eventContainer"
                 >
                   <Event item={item} />
+                  <div className="eventContainer__date">
+                    {moment(item.date).format('h:mm a')}
+                  </div>
+                  {/* <div>
+                    {item.description}
+                  </div> */}
                 </div>
 
               )
