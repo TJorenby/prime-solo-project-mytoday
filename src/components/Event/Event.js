@@ -25,7 +25,8 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
     paper: {
         position: 'absolute',
-        width: 400,
+        width: 300,
+        // height: 300,
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
@@ -86,8 +87,6 @@ function Event(props) {
     }
 
 
-
-
     return (
         <div className="event">
 
@@ -106,56 +105,59 @@ function Event(props) {
                 onClose={() => setModalOpen(false)}
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <div>{date}</div>
-                    <div className="event__modalImage">
-                        <img src={`${props.item.file_url}`} />
-                    </div>
-                    <div className="event__modalText">
-
-                    </div>
-
-                    <div className="modal__deleteBtn">
-                        <button
-                            onClick={() => deleteEvent(props.item.id)}
-
-                        >Delete</button>
-
-
-                        <button
-                            onClick={() => setTextOpen(true)}
-                        >Edit Text</button>
-
-                        <input
-                            type='checkbox'
-                            className='custom-checkbox-input'
-                            id='highlighCheckbox'
-                            value={highlight}
-                            onClick={toggleHighlight}
-                        />
-                    </div>
-
                     <div>
-                        {
-                            textOpen === true ? (
-                                <input
-                                    type="text"
-                                    placeholder={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                />
-                            ) : (
-                                    <p>{description}</p>
-                                )
-                        }
-                    </div>
+                        <div>{date}</div>
+                        <div className="event__modalImage">
+                            <img src={`${props.item.file_url}`} />
+                        </div>
+                        <div className="event__modalText">
 
-                    <div>
-                        <button
-                            onClick={() => updateDescription()}
+                        </div>
 
-                        >Update Text</button>
+                        <div className="modal__deleteBtn">
+                            <button
+                                onClick={() => deleteEvent(props.item.id)}
+
+                            >Delete</button>
+
+
+                            <button
+                                onClick={() => setTextOpen(true)}
+                            >Edit Text</button>
+
+                            <input
+                                type='checkbox'
+                                className='custom-checkbox-input'
+                                id='highlighCheckbox'
+                                value={highlight}
+                                onClick={toggleHighlight}
+                            />
+                        </div>
+
+                        <div>
+                            {
+                                textOpen === true ? (
+                                    <input
+                                        type="text"
+                                        placeholder={description}
+                                        onChange={(e) => setDescription(e.target.value)}
+                                    />
+                                ) : (
+                                        <p>{description}</p>
+                                    )
+                            }
+                        </div>
+
+                        <div>
+                            <button
+                                onClick={() => updateDescription()}
+
+                            >Update Text</button>
+                        </div>
                     </div>
 
                 </div >
+
             </Modal >
         </div >
     )

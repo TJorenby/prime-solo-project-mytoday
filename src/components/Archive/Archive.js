@@ -33,25 +33,6 @@ function Archive(props) {
     console.log('month year is:', monthYear);
 
 
-    const eventsMap = () => {
-        {
-            props.store.items.map((item, i) => {
-
-                if (props.store.user.id === item.user_id) {
-                    let eventElement = <Event item={item} />
-
-                    setEventItems(eventItems.concat(eventElement));
-                }
-
-
-            })
-        }
-
-    }
-
-    console.log('eventItems are:', eventItems);
-
-
     return (
         <div>
 
@@ -62,6 +43,7 @@ function Archive(props) {
                     setYear={setYear}
                 />
                 <button onClick={() => searchDate()}>Submit</button>
+                <button onClick={() => setMonthYear('')}>Clear Results</button>
             </div>
             <div>
                 {/* <button

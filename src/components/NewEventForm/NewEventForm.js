@@ -188,7 +188,7 @@ const NewEventForm = (props) => {
                             <BiPin
                                 className="star"
                                 size={30}
-                                color={highlight ? "red" : "white"}
+                                color={highlight ? "red" : "blue"}
                             />
                         </label>
                     </div>
