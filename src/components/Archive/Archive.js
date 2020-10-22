@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import ItemTable from '../ItemTable/ItemTable';
 import MonthPicker from '../MonthPicker/MonthPicker';
 import Event from '../Event/Event';
 import moment from 'moment';

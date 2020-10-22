@@ -1,6 +1,4 @@
-.background-color {
-    background-color: lightcyan;
-}
+@import './colors.scss';
 
 .body {
     height: 100%;
@@ -13,7 +11,8 @@
 .header{
     width: 100%;
     // min-height: 60px;
-    background: red;
+    background-color: $background;
+    border-top: 1rem;
     top: 0;
     
   }
@@ -21,21 +20,27 @@
 
 .center{
     width: 100%;
-    max-height: calc(100% - 200px);
+    max-height: calc(100% - 150px);
     overflow-y: scroll;
-    // padding: 0px 10% !important;
+    background-color: $body;
     
 }
 
-
-
 .footer{
     width: 100%;
-    min-height: 40px;
-    background: red;
+    height: 45px;
+    background-color: $background;
     bottom: 0;
     position: fixed;
     
+    
+    
+  }
+
+  .btn-styles{
+      background-color: lightseagreen;
+      object-fit: contain;
+      
   }
 
 

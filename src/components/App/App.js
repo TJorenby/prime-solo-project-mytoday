@@ -21,7 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
-import NewEvent from '../NewEvent/NewEvent';
+
 import NewEventForm from '../NewEventForm/NewEventForm';
 import Header from '../Header/Header';
 import mapStoreToProps from '../../redux/mapStoreToProps';

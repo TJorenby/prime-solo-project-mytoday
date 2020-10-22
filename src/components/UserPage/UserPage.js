@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Link } from 'react-router-dom';
-import ItemTable from '../ItemTable/ItemTable';
-import Header from '../Header/Header';
-import FooterNav from '../FooterNav/FooterNav';
 import Event from '../Event/Event';
 import moment from 'moment';
 

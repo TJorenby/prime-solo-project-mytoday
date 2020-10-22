@@ -1,33 +1,41 @@
 import React from 'react'
-import './Footer.css'
+
 import { Link, Route } from 'react-router-dom';
 
 //Styling Imports
+import './FooterNav.scss'
 import { BsPlusCircle } from "react-icons/bs";
+import { AiFillHome } from "react-icons/ai";
+import { BiPhotoAlbum, BiHomeAlt, BiCamera, BiPin } from "react-icons/bi";
 
 function FooterNav() {
     return (
         <div className="footer">
             <div className="footer__btns">
                 <Link to="/archive">
-                    <button>
-                        Archive
-            </button>
+
+                    <BiPhotoAlbum size="30px" color="white" />
+
                 </Link>
                 <Link to="/addevent">
                     <div>
-                        <button
-                            className="btn-styles"
 
-                        >
-                            <BsPlusCircle size="10%" color="white" /></button>
+                        <BiCamera size="30px" color="white" />
+
                     </div>
                 </Link>
 
                 <Link to="/highlights">
-                    <button>
-                        Highlights
-            </button>
+
+                    <BiPin size="30px" color="white" />
+
+                </Link>
+
+                <Link to="/home">
+
+
+                    <BiHomeAlt size="30px" color="white" />
+
                 </Link>
             </div>
 
