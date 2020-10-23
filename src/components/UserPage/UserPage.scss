@@ -7,11 +7,27 @@
     display: flex;
     border-radius: 0.5rem;
     // justify-content: space-between;
+    border-bottom: 1px solid lightgray;
 }
 
 .eventContainer__date {
-    justify-content: center;
-    margin: auto;
     color: white;
+    margin-top: 5px;
+    justify-content: space-between;
 
+}
+
+.dateDescription__date {
+    margin-bottom: 15px;
+    margin-left: 180px;
+    margin-top: 10px;
+}
+
+.dateDescription__description {
+    margin-right: 20px;
+}
+
+.eventContainer__event {
+
+border-radius: 0.5rem;
 }

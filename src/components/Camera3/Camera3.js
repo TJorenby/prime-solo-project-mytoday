@@ -2,10 +2,12 @@ import React from 'react';
 import Webcam from "react-webcam";
 import { Link } from 'react-router-dom';
 import './Camera3.scss';
+//Styling Import
+import { BsApp } from "react-icons/bs";
 
 const WebcamComponent = () => <Webcam />;
 
-//Styling Import
+
 
 
 const videoConstraints = {
@@ -69,11 +71,14 @@ const Camera3 = (props) => {
                 />
 
                 <div className="camera__btn">
+                    <label htmlFor="camBtn">
+                        <BsApp size="30px" color="white" />
+                    </label>
                     <button
-
-                        onClick={capture}
-                    >
-                        Capture photo</button>
+                        id="camBtn"
+                        className="btn-hide"
+                        onClick={capture}>
+                    </button>
                 </div>
 
             </div>

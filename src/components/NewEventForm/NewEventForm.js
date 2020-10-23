@@ -4,15 +4,14 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { useSpring, animated } from 'react-spring';
 
 
 //Styling Imports
 import './NewEventForm.scss';
-import Modal from '@material-ui/core/Modal';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button, Input } from '@material-ui/core';
-import { FaCamera, FaImage, FaStar, FaRegTrashAlt } from 'react-icons/fa';
+import { Input } from '@material-ui/core';
 import { BiImage, BiCamera, BiPin, BiCircle } from "react-icons/bi";
+
 
 
 
@@ -22,7 +21,6 @@ import { BiImage, BiCamera, BiPin, BiCircle } from "react-icons/bi";
 
 const NewEventForm = (props) => {
     const [file, setFile] = useState('');
-    const [camFile, setCamFile] = useState({});
     const [description, setDescription] = useState('');
     const [highlight, setHighlight] = useState(false);
     const [camImage, setCamImage] = useState('');
@@ -30,6 +28,7 @@ const NewEventForm = (props) => {
 
     const [selectImage, setSelectImage] = useState('');
     const user_id = props.store.user.id;
+    const trans = useSpring({ opacity: 1, from: { opacity: 0 } });
 
 
     const newEvent = {
@@ -82,120 +81,124 @@ const NewEventForm = (props) => {
     }
 
     return (
-        <div>
-            <div className="newevent">
-                <div className="newevent__topBtns">
-                    <Link to="/user">
-                        <div>
-                            <button className="btn-styles">
-                                Cancel
+        <>
+            <animated.div style={trans}>
+                <div className="newevent">
+                    <div className="newevent__topBtns">
+                        <Link to="/user">
+                            <div>
+                                <button className="btn-styles">
+                                    Cancel
                         </button>
-                        </div>
-                    </Link>
-                    <div>
-                        {
-                            camOn ? (null) : (
-                                <Link to="user">
-                                    <div>
-                                        <button
-
-                                            onClick={() => onSubmit()}
-                                        >Submit</button>
-                                    </div>
-                                </Link>)
-                        }
-                    </div>
-                </div>
-                <p>{moment().format('LT')}</p>
-            </div>
-
-            <div className="neweventform__imageView">
-                {
-                    camOn ? (
-
+                            </div>
+                        </Link>
                         <div>
-                            <Camera3
-                                setCamImage={setCamImage}
-                                setFile={setFile}
-                                setCamOn={setCamOn}
-                            >
-                            </Camera3>
+                            {
+                                camOn ? (null) : (
+                                    <Link to="user">
+                                        <div>
+                                            <button
+
+                                                onClick={() => onSubmit()}
+                                            >Submit</button>
+                                        </div>
+                                    </Link>)
+                            }
                         </div>
+                    </div>
+                    <p>{moment().format('LT')}</p>
+                </div>
+
+                <div className="neweventform__imageView">
+                    {
+                        camOn ? (
+
+                            <div>
+                                <Camera3
+                                    setCamImage={setCamImage}
+                                    setFile={setFile}
+                                    setCamOn={setCamOn}
+                                >
+                                </Camera3>
+                            </div>
 
 
-                    ) : (
-                            <div className="neweventform__imgPreview">
-                                {camImage ? (
-                                    <img src={camImage} alt="" />
-                                ) : (<img src={selectImage} alt="" />)
-                                }
+                        ) : (
+                                <div className="neweventform__imgPreview">
+                                    {camImage ? (
+                                        <img src={camImage} alt="" />
+                                    ) : (<img src={selectImage} alt="" />)
+                                    }
+
+                                </div>
+                            )}
+
+                </div>
+
+                <div className="neweventform__imgButtonContainer">
+                    <div className="imgButtonContainer__imgBtn">
+                        <label htmlFor="fileUpload">
+                            <BiImage size="30px" />
+                        </label>
+                        <input
+                            type='file'
+                            className="neweventform__imageInput"
+                            id='fileUpload'
+                            onChange={onChange}
+                        />
+                    </div>
+                    <div>
+                        {camOn ? (null) : (
+                            <div imgButtonContainer__imgBtn>
+                                <label htmlFor="camBtn">
+                                    <BiCamera size="30px" />
+                                </label>
+                                <button
+                                    id="camBtn"
+                                    className="btn-hide"
+                                    onClick={() => toggleImageView()}>
+                                </button>
+
 
                             </div>
                         )}
-
-            </div>
-
-            <div className="neweventform__imgButtonContainer">
-                <div className="imgButtonContainer__imgBtn">
-                    <label htmlFor="fileUpload">
-                        <BiImage size="30px" />
-                    </label>
-                    <input
-                        type='file'
-                        className="neweventform__imageInput"
-                        id='fileUpload'
-                        onChange={onChange}
-                    />
-                </div>
-                <div>
-                    {camOn ? (null) : (
-                        <div imgButtonContainer__imgBtn>
-                            <label htmlFor="camBtn">
-                                <BiCamera size="30px" />
-                            </label>
-                            <button
-                                id="camBtn"
-                                className="btn-hide"
-                                onClick={() => toggleImageView()}>
-                            </button>
-
-
-                        </div>
-                    )}
-                </div>
-            </div>
-
-            <div className="newevent__form">
-                <div>
-                    <div className=''>
-
-                        <Input
-                            type='text'
-                            id='description'
-                            value={description}
-                            placeholder='caption'
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
-                        <label>
-                            <input
-                                type='checkbox'
-                                className='neweventform__checkbox'
-                                id='highlighCheckbox'
-                                value={highlight}
-                                onClick={toggleHighlight}
-                            />
-
-                            <BiPin
-
-                                size={30}
-                                color={highlight ? "red" : "blue"}
-                            />
-                        </label>
                     </div>
-
                 </div>
-            </div>
-        </div >
+
+                <div className="newevent__form">
+                    <div>
+                        <div className=''>
+
+                            <Input
+                                className="text_color"
+                                type='text'
+                                id='description'
+                                value={description}
+                                placeholder='Add Caption'
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
+                            <label>
+                                <input
+                                    type='checkbox'
+                                    className='neweventform__checkbox'
+                                    id='highlighCheckbox'
+                                    value={highlight}
+                                    onClick={toggleHighlight}
+
+                                />
+
+                                <BiPin
+
+                                    size={30}
+                                    color={highlight ? "red" : "blue"}
+                                />
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </animated.div>
+        </>
     );
 };
 
