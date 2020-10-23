@@ -145,6 +145,7 @@ class App extends Component {
             </Switch>
           </div>
 
+
           <div className="footer">
             {this.props.store.user.id ? (
 

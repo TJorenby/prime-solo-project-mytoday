@@ -5,8 +5,8 @@
     width: 100%;
     height: 350px;
     // object-fit: contain;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    // border-top: 1px solid lightgray;
+    // border-bottom: 1px solid lightgray;
     margin: 0, 5vw;
 
 }
@@ -19,14 +19,15 @@
 }
 
 
-.neweventform__camera{
-    height: 300px;
-    width: 100%;
+// .neweventform__camera{
+//     height: 300px;
+//     width: 100%;
     
-  }
+//   }
 
   .newevent__form {
-      margin-top: 35%;
+      margin-top: 25%;
+      margin-bottom:20%;
       display: flex;
     //   justify-content: space-between;
   }

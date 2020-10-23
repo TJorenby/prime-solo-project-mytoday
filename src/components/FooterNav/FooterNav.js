@@ -12,27 +12,27 @@ function FooterNav() {
             <div className="footer__btns">
                 <Link to="/archive">
 
-                    <BiPhotoAlbum size="30px" color="white" />
+                    <BiPhotoAlbum size="30px" color="whitesmoke" />
 
                 </Link>
                 <Link to="/addevent">
                     <div>
 
-                        <BiCamera size="30px" color="white" />
+                        <BiCamera size="30px" color="whitesmoke" />
 
                     </div>
                 </Link>
 
                 <Link to="/highlights">
 
-                    <BiPin size="30px" color="white" />
+                    <BiPin size="30px" color="whitesmoke" />
 
                 </Link>
 
                 <Link to="/home">
 
 
-                    <BiHomeAlt size="30px" color="white" />
+                    <BiHomeAlt size="30px" color="whitesmoke" />
 
                 </Link>
             </div>

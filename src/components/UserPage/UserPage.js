@@ -29,9 +29,11 @@ function UserPage(props) {
 
   return (
     <div>
-      <h4>{`It's ${moment().format('LT')} on ${moment().format('MMMM Do YYYY')} `}</h4>
+      {/* <h4>{`It's ${moment().format('LT')} on ${moment().format('MMMM Do YYYY')} `}</h4> */}
 
-
+      <div className="userpage__header">
+        <h4>Today's Events</h4>
+      </div>
 
 
 

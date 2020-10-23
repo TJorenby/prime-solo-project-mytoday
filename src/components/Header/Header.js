@@ -10,7 +10,9 @@ function Header() {
                 src="/images/myToday-logo-white4.png"
                 alt=""
             />
-            <LogOutButton />
+            <div>
+                <LogOutButton />
+            </div>
         </div>
     )
 }

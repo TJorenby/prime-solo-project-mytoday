@@ -10,11 +10,22 @@ import { useSpring, animated } from 'react-spring';
 //Styling Imports
 import './NewEventForm.scss';
 import { Input } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import { BiImage, BiCamera, BiPin, BiCircle } from "react-icons/bi";
 
 
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            width: '25ch',
+            color: "whitesmoke"
 
+        },
+    },
+}));
 
 
 
@@ -29,7 +40,7 @@ const NewEventForm = (props) => {
     const [selectImage, setSelectImage] = useState('');
     const user_id = props.store.user.id;
     const trans = useSpring({ opacity: 1, from: { opacity: 0 } });
-
+    const classes = useStyles();
 
     const newEvent = {
         user_id: user_id,
@@ -106,7 +117,9 @@ const NewEventForm = (props) => {
                             }
                         </div>
                     </div>
-                    <p>{moment().format('LT')}</p>
+                    <div className="text_color">
+                        <p>{moment().format('LT')}</p>
+                    </div>
                 </div>
 
                 <div className="neweventform__imageView">
@@ -138,7 +151,7 @@ const NewEventForm = (props) => {
                 <div className="neweventform__imgButtonContainer">
                     <div className="imgButtonContainer__imgBtn">
                         <label htmlFor="fileUpload">
-                            <BiImage size="30px" />
+                            <BiImage size="30px" color="whitesmoke" />
                         </label>
                         <input
                             type='file'
@@ -151,7 +164,7 @@ const NewEventForm = (props) => {
                         {camOn ? (null) : (
                             <div imgButtonContainer__imgBtn>
                                 <label htmlFor="camBtn">
-                                    <BiCamera size="30px" />
+                                    <BiCamera size="30px" color="whitesmoke" />
                                 </label>
                                 <button
                                     id="camBtn"
@@ -168,15 +181,32 @@ const NewEventForm = (props) => {
                 <div className="newevent__form">
                     <div>
                         <div className=''>
+                            <form className={classes.root} noValidate autoComplete="off">
 
-                            <Input
-                                className="text_color"
-                                type='text'
-                                id='description'
-                                value={description}
-                                placeholder='Add Caption'
-                                onChange={(e) => setDescription(e.target.value)}
-                            />
+                                {/* <Input
+                                    className="text_color"
+                                    type='text'
+                                    id='description'
+                                    value={description}
+                                    placeholder='Add Caption'
+                                    onChange={(e) => setDescription(e.target.value)}
+                                /> */}
+
+                                <TextField
+                                    InputProps={{ className: "text_color" }}
+                                    InputLabelProps={{ className: "text_color" }}
+                                    InputPlaceholderProps={{ className: "text_color" }}
+                                    className="text_color"
+                                    type='text'
+                                    id="standard-multiline-static"
+                                    multiline
+                                    rows={2}
+                                    value={description}
+                                    placeholder='Add Caption'
+                                    onChange={(e) => setDescription(e.target.value)}
+                                />
+
+                            </form>
                             <label>
                                 <input
                                     type='checkbox'

@@ -1,12 +1,17 @@
+@import '../scss/main.scss';
+
 html,
 body,
 #react-root {
-  height: 100vh;
+  height: 100%;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  background-image: url("gray-sky.jpg");
+  background-size: cover;
+  
 }
 
 /* img {

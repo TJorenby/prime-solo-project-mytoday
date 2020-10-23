@@ -1,5 +1,9 @@
 @import '../scss/colors.scss';
 
+.userpage__header{
+    color: $text-color;
+}
+
 .userpage__eventContainer {
     // height: 100px;
     width: 100%;
@@ -10,11 +14,10 @@
     border-bottom: 1px solid lightgray;
 }
 
-.eventContainer__date {
-    color: white;
+.eventContainer__dateDescription {
+    color: $text-color;
     margin-top: 5px;
     justify-content: space-between;
-
 }
 
 .dateDescription__date {
@@ -28,6 +31,5 @@
 }
 
 .eventContainer__event {
-
 border-radius: 0.5rem;
 }

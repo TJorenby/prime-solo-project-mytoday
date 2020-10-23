@@ -34,6 +34,7 @@ function Archive(props) {
                 <div className="archive__monthPicker">
 
                     <MonthPicker
+                        className="text_color"
                         setMonth={setMonth}
                         setYear={setYear}
                     />

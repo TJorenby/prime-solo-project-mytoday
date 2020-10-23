@@ -6,13 +6,19 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+//Style Imports
+
+
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
+        color: "whitesmoke"
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
+        color: "whitesmoke"
     },
 }));
 

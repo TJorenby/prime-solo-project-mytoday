@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import LoginForm from '../LoginForm/LoginForm';
 
+//Style Imports
+import './LoginPage.scss';
+
 class LoginPage extends Component {
   render() {
     return (
-      <div>
+      <div className="login__form">
         <LoginForm />
 
         <center>
