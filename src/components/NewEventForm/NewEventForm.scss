@@ -1,5 +1,9 @@
 @import '../scss/main.scss';
 
+.newevent {
+    margin-bottom: 10%;
+    background-color: $background;
+}
 
 .neweventform__imgPreview {
     width: 100%;
@@ -16,8 +20,12 @@
     margin-top: 30px;
     object-position: center; 
     display: flex; 
+    justify-content: space-between;
 }
 
+.newevent_form {
+    margin-bottom: 10%;
+}
 
 // .neweventform__camera{
 //     height: 300px;
@@ -25,9 +33,9 @@
     
 //   }
 
-  .newevent__form {
-      margin-top: 25%;
-      margin-bottom:20%;
+  .newevent__formContainer {
+    //   margin-top: 22%;
+    //   margin-bottom:20%;
       display: flex;
     //   justify-content: space-between;
   }

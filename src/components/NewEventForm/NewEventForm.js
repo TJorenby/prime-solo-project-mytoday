@@ -10,9 +10,10 @@ import { useSpring, animated } from 'react-spring';
 //Styling Imports
 import './NewEventForm.scss';
 import { Input } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { BiImage, BiCamera, BiPin, BiCircle } from "react-icons/bi";
+import { BiImage, BiCamera, BiPin, BiImageAdd } from "react-icons/bi";
 
 
 
@@ -96,24 +97,33 @@ const NewEventForm = (props) => {
             <animated.div style={trans}>
                 <div className="newevent">
                     <div className="newevent__topBtns">
-                        <Link to="/user">
-                            <div>
-                                <button className="btn-styles">
+
+                        <div>
+                            {/* <label htmlFor="cancelBtn">
+                                Cancel
+                        </label> */}
+                            <Link className="link" to="/user">
+                                <Button className="text-btns text_color" id="cancelBtn">
+                                
                                     Cancel
-                        </button>
-                            </div>
-                        </Link>
+                                   
+                            </Button>
+                            </Link>
+                        </div>
+
                         <div>
                             {
                                 camOn ? (null) : (
-                                    <Link to="user">
-                                        <div>
-                                            <button
+                                    
+                                <div>
+                                    <Link className="link" to="user">
+                                    <Button className="text_color"
 
-                                                onClick={() => onSubmit()}
-                                            >Submit</button>
-                                        </div>
-                                    </Link>)
+                                        onClick={() => onSubmit()}
+                                    >Add</Button>
+                                    </Link>
+                                </div>
+                            )
                             }
                         </div>
                     </div>
@@ -151,7 +161,7 @@ const NewEventForm = (props) => {
                 <div className="neweventform__imgButtonContainer">
                     <div className="imgButtonContainer__imgBtn">
                         <label htmlFor="fileUpload">
-                            <BiImage size="30px" color="whitesmoke" />
+                            <BiImageAdd size="30px" color="whitesmoke" />
                         </label>
                         <input
                             type='file'
@@ -171,32 +181,22 @@ const NewEventForm = (props) => {
                                     className="btn-hide"
                                     onClick={() => toggleImageView()}>
                                 </button>
-
-
                             </div>
                         )}
                     </div>
                 </div>
 
-                <div className="newevent__form">
-                    <div>
-                        <div className=''>
-                            <form className={classes.root} noValidate autoComplete="off">
+                {camOn ? <div className="newevent__formContainer"></div> :(
 
-                                {/* <Input
-                                    className="text_color"
-                                    type='text'
-                                    id='description'
-                                    value={description}
-                                    placeholder='Add Caption'
-                                    onChange={(e) => setDescription(e.target.value)}
-                                /> */}
+                <div className="newevent__formContainer">
+                        <div className="newevent_form">
+                            <form className={classes.root} noValidate autoComplete="off">
 
                                 <TextField
                                     InputProps={{ className: "text_color" }}
                                     InputLabelProps={{ className: "text_color" }}
                                     InputPlaceholderProps={{ className: "text_color" }}
-                                    className="text_color"
+                                    
                                     type='text'
                                     id="standard-multiline-static"
                                     multiline
@@ -219,14 +219,14 @@ const NewEventForm = (props) => {
 
                                 <BiPin
 
-                                    size={30}
+                                    size={20}
                                     color={highlight ? "red" : "blue"}
                                 />
                             </label>
                         </div>
 
-                    </div>
-                </div>
+                   
+                </div>)}
             </animated.div>
         </>
     );

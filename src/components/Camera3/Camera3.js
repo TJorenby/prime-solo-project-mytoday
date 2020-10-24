@@ -1,9 +1,11 @@
 import React from 'react';
 import Webcam from "react-webcam";
 import { Link } from 'react-router-dom';
-import './Camera3.scss';
+
+
 //Styling Import
-import { BsApp } from "react-icons/bs";
+import './Camera3.scss';
+import { BiCircle } from "react-icons/bi";
 
 const WebcamComponent = () => <Webcam />;
 
@@ -72,7 +74,7 @@ const Camera3 = (props) => {
 
                 <div className="camera__btn">
                     <label htmlFor="camBtn">
-                        <BsApp size="30px" color="white" />
+                        <BiCircle size="50px" color="whitesmoke" />
                     </label>
                     <button
                         id="camBtn"

@@ -43,6 +43,7 @@ display: flex;
   .btn-styles{
       background-color: lightseagreen;
       object-fit: contain;
+      border: none;
       
   }
 
@@ -52,6 +53,10 @@ display: flex;
 
   .text_color{
       color: whitesmoke !important;
+  }
+
+  .link{
+      text-decoration: none;
   }
 
 
