@@ -179,8 +179,9 @@ const NewEventForm = (props) => {
                                 <button
                                     id="camBtn"
                                     className="btn-hide"
-                                    onClick={() => toggleImageView()}>
-                                </button>
+                                    onClick={() => toggleImageView()}
+                                />
+                               
                             </div>
                         )}
                     </div>

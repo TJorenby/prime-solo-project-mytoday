@@ -13,10 +13,11 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import moment from 'moment';
 import { useSpring, animated } from 'react-spring';
+import { BiSearch } from "react-icons/bi";
 
 //DRAWER
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
+
 
 // Grid styling 
 const useStyles = makeStyles((theme) => ({
@@ -28,15 +29,15 @@ const useStyles = makeStyles((theme) => ({
         // backgroundColor: theme.palette.background.paper,
     },
     gridList: {
-        // width: 500,
+        width: 500,
         // height: 450,
     },
     // DRAWER
     list: {
-        width: 250,
+        width: 50,
     },
     fullList: {
-        width: 'auto',
+        width: 50,
     },
 }));
 
@@ -50,7 +51,8 @@ function Archive(props) {
 
     // DRAWER
     const [state, setState] = useState({
-        top: false
+        top: false,
+        right: false
     });
     //DRAWER
 
@@ -76,9 +78,7 @@ function Archive(props) {
 
     const list = (anchor) => (
         <div
-            // className={clsx(classes.list, {
-            //     [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-            // })}
+            className="archive__drawer"
             role="presentation"
         // onClick={toggleDrawer(anchor, false)}
         // onKeyDown={toggleDrawer(anchor, false)}
@@ -92,6 +92,41 @@ function Archive(props) {
                 />
                 <button onClick={() => searchDate()}>Submit</button>
                 <button onClick={() => setMonthYear('')}>Clear Results</button>
+
+                {/* MAYBE */}
+
+                <div className="archive__imgContainer">
+                    <div className={classes.root}>
+                        <GridList cellHeight={120} className={classes.gridList} cols={3}>
+                            {props.store.items.map((item, i) => {
+
+                                if (props.store.user.id === item.user_id) {
+                                    // console.log('item.date is:', item.date);
+                                    let dateString = moment(item.date).format('MMMM YYYY').toString();
+                                    // console.log('dateString is:', dateString);
+
+                                    if (dateString === monthYear) {
+                                        return (
+                                            <GridListTile key={item.id} cols={item.cols}>
+                                                <Event item={item} />
+                                            </GridListTile>
+
+                                        )
+                                    }
+                                }
+                            })}
+                        </GridList>
+                    </div>
+                </div>
+                {/* END MAYBE */}
+
+
+
+
+
+
+
+
             </div>
         </div>
     );
@@ -122,8 +157,14 @@ function Archive(props) {
                 <div>
 
 
-
-                    <button onClick={toggleDrawer('top', true)}>Open Search</button>
+                    <label htmlFor="searchBtn">
+                        <BiSearch size="30px" color="whitesmoke" />
+                    </label>
+                    <button
+                        id="searchBtn"
+                        className="btn-hide"
+                        onClick={toggleDrawer('top', true)}
+                    />
                     <Drawer anchor={'top'} open={state['top']} onClose={toggleDrawer('top', false)}>
                         {list('top')}
                     </Drawer>
@@ -143,26 +184,26 @@ function Archive(props) {
                                     let dateString = moment(item.date).format('MMMM YYYY').toString();
                                     // console.log('dateString is:', dateString);
 
-                                    if (monthYear === '') {
+                                    // if (monthYear === '') {
 
-                                        return (
+                                    return (
 
-                                            <GridListTile key={item.id} cols={item.cols || 1}>
-                                                <Event item={item} />
-                                            </GridListTile>
+                                        <GridListTile key={item.id} cols={item.cols || 1}>
+                                            <Event item={item} />
+                                        </GridListTile>
 
-                                        )
+                                    )
 
-                                    }
+                                    // }
 
-                                    else if (dateString === monthYear) {
-                                        return (
-                                            <GridListTile key={item.id} cols={item.cols || 1}>
-                                                <Event item={item} />
-                                            </GridListTile>
+                                    // else if (dateString === monthYear) {
+                                    //     return (
+                                    //         <GridListTile key={item.id} cols={item.cols}>
+                                    //             <Event item={item} />
+                                    //         </GridListTile>
 
-                                        )
-                                    }
+                                    //     )
+                                    // }
                                 }
                             })}
                         </GridList>
