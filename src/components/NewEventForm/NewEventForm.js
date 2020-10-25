@@ -98,32 +98,48 @@ const NewEventForm = (props) => {
                 <div className="newevent">
                     <div className="newevent__topBtns">
 
-                        <div>
-                            {/* <label htmlFor="cancelBtn">
-                                Cancel
-                        </label> */}
-                            <Link className="link" to="/user">
-                                <Button className="text-btns text_color" id="cancelBtn">
-                                
-                                    Cancel
-                                   
-                            </Button>
-                            </Link>
+                        <div className="neweventform__imgButtonContainer">
+                            <div className="imgButtonContainer__imgBtn">
+                                <label htmlFor="fileUpload">
+                                    <BiImageAdd size="30px" color="whitesmoke" />
+                                </label>
+                                <input
+                                    type='file'
+                                    className="neweventform__imageInput"
+                                    id='fileUpload'
+                                    onChange={onChange}
+                                />
+                            </div>
+                            <div>
+                                {camOn ? (null) : (
+                                    <div imgButtonContainer__imgBtn>
+                                        <label htmlFor="camBtn">
+                                            <BiCamera size="30px" color="whitesmoke" />
+                                        </label>
+                                        <button
+                                            id="camBtn"
+                                            className="btn-hide"
+                                            onClick={() => toggleImageView()}
+                                        />
+
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
                         <div>
                             {
                                 camOn ? (null) : (
-                                    
-                                <div>
-                                    <Link className="link" to="user">
-                                    <Button className="text_color"
 
-                                        onClick={() => onSubmit()}
-                                    >Add</Button>
-                                    </Link>
-                                </div>
-                            )
+                                    <div>
+                                        <Link className="link" to="user">
+                                            <Button className="text_color"
+
+                                                onClick={() => onSubmit()}
+                                            >Add</Button>
+                                        </Link>
+                                    </div>
+                                )
                             }
                         </div>
                     </div>
@@ -158,38 +174,11 @@ const NewEventForm = (props) => {
 
                 </div>
 
-                <div className="neweventform__imgButtonContainer">
-                    <div className="imgButtonContainer__imgBtn">
-                        <label htmlFor="fileUpload">
-                            <BiImageAdd size="30px" color="whitesmoke" />
-                        </label>
-                        <input
-                            type='file'
-                            className="neweventform__imageInput"
-                            id='fileUpload'
-                            onChange={onChange}
-                        />
-                    </div>
-                    <div>
-                        {camOn ? (null) : (
-                            <div imgButtonContainer__imgBtn>
-                                <label htmlFor="camBtn">
-                                    <BiCamera size="30px" color="whitesmoke" />
-                                </label>
-                                <button
-                                    id="camBtn"
-                                    className="btn-hide"
-                                    onClick={() => toggleImageView()}
-                                />
-                               
-                            </div>
-                        )}
-                    </div>
-                </div>
 
-                {camOn ? <div className="newevent__formContainer"></div> :(
 
-                <div className="newevent__formContainer">
+                {camOn ? <div className="newevent__formContainer"></div> : (
+
+                    <div className="newevent__formContainer">
                         <div className="newevent_form">
                             <form className={classes.root} noValidate autoComplete="off">
 
@@ -197,7 +186,7 @@ const NewEventForm = (props) => {
                                     InputProps={{ className: "text_color" }}
                                     InputLabelProps={{ className: "text_color" }}
                                     InputPlaceholderProps={{ className: "text_color" }}
-                                    
+
                                     type='text'
                                     id="standard-multiline-static"
                                     multiline
@@ -226,8 +215,8 @@ const NewEventForm = (props) => {
                             </label>
                         </div>
 
-                   
-                </div>)}
+
+                    </div>)}
             </animated.div>
         </>
     );

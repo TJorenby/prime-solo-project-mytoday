@@ -3,8 +3,20 @@
 .archive {
     width: 100%;
     max-height: calc(100% - 50px);
+    // margin-top: 50px;
     overflow-y: scroll;
     background-color: $body;
+}
+
+.archive_header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 50px;
+    top: 0.25rem;
+    position: fixed;
+    align-items: center;
+    color: $text-color;
 }
 .archive__imgContainer{
    width: 100%;
@@ -12,6 +24,15 @@
    overflow: auto;
    justify-content: center;
 }
+
+.drawer__imgContainer{
+    width: 100%;
+    padding: 5px;
+    overflow: auto;
+    justify-content: center;
+    background-color: $container;
+   
+ }
 
 .imgContainer__event {
     width: 100%;
@@ -22,14 +43,20 @@
     // background-position: center;
 }
 
-.archive__drawer {
-    width: 100%
+.dateSearch__btns {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
 }
 
-.archive__monthPicker {
-    height: 400px;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+.archive__dateSearch {
+    // width: 100vw;
+    padding: 5px;
+    justify-content: center;
     background-color: $background;
+}
+
+.dateSearch_menus {
+    padding: 10px;
+    justify-content: center;
 }

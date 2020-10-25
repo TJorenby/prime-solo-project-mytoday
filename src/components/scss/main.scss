@@ -1,5 +1,9 @@
 @import './colors.scss';
 
+* {
+    box-sizing: border-box;
+}
+
 .body {
     height: 100%;
     overflow: hidden;
