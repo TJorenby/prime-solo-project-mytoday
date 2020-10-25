@@ -7,8 +7,9 @@
         [] Style Login page
         [X] Header and Footer line breaks
         [] Highlight Component
-        [] Search Component in Archive - Drawer and spy glass?
+        [X] Search Component in Archive - Drawer and spy glass?
         [] Style the Modal
+        [] Event page - Fix height
 
 
     --Other--

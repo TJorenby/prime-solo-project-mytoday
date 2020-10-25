@@ -56,8 +56,9 @@ const Camera3 = (props) => {
     return (
         <div className="camera__body">
 
-            <div className="camera">
+            <div >
                 <Webcam
+                    className="camera"
                     audio={false}
                     height={375}
                     width={375}
@@ -66,10 +67,7 @@ const Camera3 = (props) => {
                     videoConstraints={videoConstraints}
                     imageSmoothing={true}
                     minScreenshotHeight={200}
-
                     screenshotQuality={0.92}
-
-
                 />
 
                 <div className="camera__btn">

@@ -40,9 +40,6 @@ display: flex;
     background-color: $background;
     bottom: 0;
     position: fixed;
-    
-    
-    
   }
 
   .btn-styles{
@@ -62,6 +59,10 @@ display: flex;
 
   .link{
       text-decoration: none;
+  }
+
+  .hide {
+      display: none;
   }
 
 
