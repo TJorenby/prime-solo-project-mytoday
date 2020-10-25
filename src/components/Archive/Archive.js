@@ -3,18 +3,38 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import MonthPicker from '../MonthPicker/MonthPicker';
 import Event from '../Event/Event';
-import moment from 'moment';
-import { useSpring, animated } from 'react-spring';
+
 
 
 //Styling Imports
 import './Archive.scss';
+import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import moment from 'moment';
+import { useSpring, animated } from 'react-spring';
+
+// Grid styling 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+        // backgroundColor: theme.palette.background.paper,
+    },
+    gridList: {
+        // width: 500,
+        // height: 450,
+    },
+}));
 
 function Archive(props) {
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
     const [monthYear, setMonthYear] = useState('');
     const test = [props.store.items];
+    const classes = useStyles();
     console.log('month is:', month);
     console.log('props items:', test);
 
@@ -29,7 +49,7 @@ function Archive(props) {
 
 
     return (
-        <>
+        <div className="archive">
             <animated.div style={trans}>
                 <div className="archive__monthPicker">
 
@@ -46,8 +66,8 @@ function Archive(props) {
                 </div>
 
                 <div className="archive__imgContainer">
-                    <table>
-                        <tbody>
+                    <div className={classes.root}>
+                        <GridList cellHeight={120} className={classes.gridList} cols={3}>
                             {props.store.items.map((item, i) => {
 
                                 if (props.store.user.id === item.user_id) {
@@ -58,12 +78,12 @@ function Archive(props) {
                                     if (monthYear === '') {
 
                                         return (
-                                            <tr className="imgContainer__event"  >
-                                                <td>
-                                                    <Event item={item} />
-                                                </td>
 
-                                            </tr>
+                                            <GridListTile key={item.id} cols={item.cols || 1}>
+                                                <Event item={item} />
+                                            </GridListTile>
+
+
 
 
 
@@ -73,23 +93,20 @@ function Archive(props) {
 
                                     else if (dateString === monthYear) {
                                         return (
-                                            <tr className="imgContainer__event"  >
-                                                <td>
-                                                    <Event item={item} />
-                                                </td>
-
-                                            </tr>
+                                            <GridListTile key={item.id} cols={item.cols || 1}>
+                                                <Event item={item} />
+                                            </GridListTile>
 
                                         )
                                     }
                                 }
                             })}
-                        </tbody>
-                    </table>
+                        </GridList>
+                    </div>
 
                 </div>
             </animated.div>
-        </>
+        </div >
     )
 }
 

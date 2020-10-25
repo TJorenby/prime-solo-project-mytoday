@@ -1,13 +1,35 @@
 --myToday Master ToDo List--
 
+--10/25 TO DO--
+
+    --Styling--
+        [] Complete styling on Camera Component
+        [] Style Login page
+        [X] Header and Footer line breaks
+        [] Highlight Component
+        [] Search Component in Archive - Drawer and spy glass?
+        [] Style the Modal
+
+
+    --Other--
+        [] Database Assembly
+        [] Revise intro
+        [] Choose Intro song
+        [] Tech used?
+        [] Thanks
+        [] Most challenging triumph
+
+
+
+
 --THINGS TO FIX--
     [X] Screenshots are not saving do db
     [X] Put Route is throwing a syntax error
     [] Login Takes user to Archive rather than Home. 
     [] PNG files aren't rendering on DOM
     [] Hitting "Cancel" on Choose File crashes the app. 
-    [] Camera Images and Files are not consistent sizing. 
-    [] Logo
+    [X] Camera Images and Files are not consistent sizing. 
+    [X] Logo
 
 Pre-dev checklist
     [X] Custom Logo
