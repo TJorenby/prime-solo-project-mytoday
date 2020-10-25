@@ -14,6 +14,10 @@ import GridListTile from '@material-ui/core/GridListTile';
 import moment from 'moment';
 import { useSpring, animated } from 'react-spring';
 
+//DRAWER
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+
 // Grid styling 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,6 +31,13 @@ const useStyles = makeStyles((theme) => ({
         // width: 500,
         // height: 450,
     },
+    // DRAWER
+    list: {
+        width: 250,
+    },
+    fullList: {
+        width: 'auto',
+    },
 }));
 
 function Archive(props) {
@@ -35,23 +46,69 @@ function Archive(props) {
     const [monthYear, setMonthYear] = useState('');
     const test = [props.store.items];
     const classes = useStyles();
+    const trans = useSpring({ opacity: 1, from: { opacity: 0 } });
+
+    // DRAWER
+    const [state, setState] = useState({
+        top: false
+    });
+    //DRAWER
+
+
     console.log('month is:', month);
     console.log('props items:', test);
+    console.log('month year is:', monthYear);
 
 
     const searchDate = () => {
         setMonthYear(`${month} ${year}`);
     }
-    console.log('month year is:', monthYear);
 
-    const trans = useSpring({ opacity: 1, from: { opacity: 0 } });
+    // DRAWER STUFF
 
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({ ...state, [anchor]: open });
+    };
+
+    const list = (anchor) => (
+        <div
+            // className={clsx(classes.list, {
+            //     [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+            // })}
+            role="presentation"
+        // onClick={toggleDrawer(anchor, false)}
+        // onKeyDown={toggleDrawer(anchor, false)}
+        >
+            <div className="archive__monthPicker">
+
+                <MonthPicker
+                    className="text_color"
+                    setMonth={setMonth}
+                    setYear={setYear}
+                />
+                <button onClick={() => searchDate()}>Submit</button>
+                <button onClick={() => setMonthYear('')}>Clear Results</button>
+            </div>
+        </div>
+    );
+
+
+
+
+
+
+
+    // END DRAWER STUFF
 
 
     return (
         <div className="archive">
             <animated.div style={trans}>
-                <div className="archive__monthPicker">
+                {/* <div className="archive__monthPicker">
 
                     <MonthPicker
                         className="text_color"
@@ -60,10 +117,21 @@ function Archive(props) {
                     />
                     <button onClick={() => searchDate()}>Submit</button>
                     <button onClick={() => setMonthYear('')}>Clear Results</button>
-                </div>
+                </div> */}
+
                 <div>
 
+
+
+                    <button onClick={toggleDrawer('top', true)}>Open Search</button>
+                    <Drawer anchor={'top'} open={state['top']} onClose={toggleDrawer('top', false)}>
+                        {list('top')}
+                    </Drawer>
+
+
+
                 </div>
+
 
                 <div className="archive__imgContainer">
                     <div className={classes.root}>
@@ -83,10 +151,6 @@ function Archive(props) {
                                                 <Event item={item} />
                                             </GridListTile>
 
-
-
-
-
                                         )
 
                                     }
@@ -103,7 +167,6 @@ function Archive(props) {
                             })}
                         </GridList>
                     </div>
-
                 </div>
             </animated.div>
         </div >
