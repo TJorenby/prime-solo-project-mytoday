@@ -178,45 +178,47 @@ const NewEventForm = (props) => {
 
                 {camOn ? <div className="newevent__formContainer"></div> : (
 
-                    <div className="newevent__formContainer">
-                        <div className="newevent_form">
-                            <form className={classes.root} noValidate autoComplete="off">
 
-                                <TextField
-                                    InputProps={{ className: "text_color" }}
-                                    InputLabelProps={{ className: "text_color" }}
-                                    InputPlaceholderProps={{ className: "text_color" }}
+                    <div className="newevent__form">
+                        <form className={classes.root} noValidate autoComplete="off">
 
-                                    type='text'
-                                    id="standard-multiline-static"
-                                    multiline
-                                    rows={2}
-                                    value={description}
-                                    placeholder='Add Caption'
-                                    onChange={(e) => setDescription(e.target.value)}
-                                />
+                            <TextField
+                                InputProps={{ className: "text_color" }}
+                                InputLabelProps={{ className: "text_color" }}
+                                InputPlaceholderProps={{ className: "text_color" }}
 
-                            </form>
-                            <label>
-                                <input
-                                    type='checkbox'
-                                    className='neweventform__checkbox'
-                                    id='highlighCheckbox'
-                                    value={highlight}
-                                    onClick={toggleHighlight}
-
-                                />
-
-                                <BiPin
-
-                                    size={20}
-                                    color={highlight ? "red" : "blue"}
-                                />
-                            </label>
-                        </div>
+                                type='text'
+                                id="standard-multiline-static"
+                                multiline
+                                rows={2}
+                                value={description}
+                                placeholder='Add Caption'
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
 
 
-                    </div>)}
+                        </form>
+                        <label>
+                            <input
+                                type='checkbox'
+                                className='neweventform__checkbox'
+                                id='highlighCheckbox'
+                                value={highlight}
+                                onClick={toggleHighlight}
+
+                            />
+
+                            <BiPin
+
+                                size={20}
+                                color={highlight ? "red" : "blue"}
+                            />
+                        </label>
+
+                    </div>
+
+
+                )}
             </animated.div>
         </>
     );

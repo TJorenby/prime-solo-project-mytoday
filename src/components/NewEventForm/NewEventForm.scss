@@ -36,6 +36,7 @@
 
 .newevent_form {
     margin-bottom: 10%;
+    margin-top: 10%;
 }
 
 .newevent__header {
@@ -53,10 +54,10 @@
 
 }
 
-  .newevent__formContainer {
-    //   margin-top: 22%;
-    //   margin-bottom:20%;
+  .newevent__form {
+    margin-top: 22%;
       display: flex;
+      align-items: center;
     //   justify-content: space-between;
   }
 
