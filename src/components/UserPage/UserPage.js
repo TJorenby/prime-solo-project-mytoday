@@ -5,21 +5,17 @@ import { Link } from 'react-router-dom';
 import Event from '../Event/Event';
 import moment from 'moment';
 import { useSpring, animated } from 'react-spring';
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 //Styling Imports
 import './UserPage.scss';
 
 function UserPage(props) {
   const [month, setMonth] = useState('');
-  const test = [props.store.items];
-  console.log('month is:', month);
-  console.log('props items:', test);
+  const todayDate = moment(new Date()).format('ll');
 
-  // const transition = useTransition(props.store.items, item => props.store.items.id, {
-  //   from: { opacity: 0, marginLeft: -100, marginRight: 100 },
-  //   enter: { opacity: 1, marginLeft: 0, marginRight: 0 }
 
-  // });
+
 
   const trans = useSpring({ opacity: 1, from: { opacity: 0 } });
 
@@ -28,16 +24,17 @@ function UserPage(props) {
 
 
   return (
-    <div>
-      {/* <h4>{`It's ${moment().format('LT')} on ${moment().format('MMMM Do YYYY')} `}</h4> */}
 
-      <div className="userpage__header">
+
+    <div>
+      <div className="center__header">
         <h4>Today's Events</h4>
+        <p>{todayDate}</p>
       </div>
 
 
 
-      <div>
+      <div className="userpage__eventList">
         {props.store.items.map((item, i) => {
 
 
@@ -47,7 +44,7 @@ function UserPage(props) {
             let dateString =
               moment(item.date).format('ll');
             console.log('dateString is:', dateString);
-            let todayDate = moment(new Date()).format('ll');
+
             console.log('todayDate is:', todayDate);
 
             if (todayDate === dateString) {

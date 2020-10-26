@@ -1,7 +1,28 @@
 @import '../scss/main.scss';
 
+.login__logo {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding-left: 3px;
+    padding-right: 3px;
+    top: 0.25rem;
+    position: fixed;
+    align-items: center;
+    background: none;
+    // background-color: $body;
+    color: $text-color;
+}
+
 .login__form {
-    // margin-top: 100%;
+    margin-top: 200px;
+    // background-image: linear-gradient(to left,rgba(0,0,100,0), rgba(72,209,150,.3), rgba(0,0,100,0));
+    background: none;
+
+    
     // margin-bottom: 75%;
-    background-color: $background;
+    // background-color: $body;
 }

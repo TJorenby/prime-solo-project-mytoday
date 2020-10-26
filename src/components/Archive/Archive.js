@@ -121,7 +121,7 @@ function Archive(props) {
         <div className="archive">
             <animated.div style={trans}>
 
-                <div className="archive_header">
+                <div className="center__header">
                     <h4>Archive</h4>
 
                     <label htmlFor="searchBtn">

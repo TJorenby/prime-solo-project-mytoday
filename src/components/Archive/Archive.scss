@@ -3,23 +3,11 @@
 .archive {
     width: 100%;
     max-height: calc(100% - 50px);
-    // margin-top: 50px;
+    margin-top: 50px;
     overflow-y: scroll;
     background-color: $body;
 }
 
-.archive_header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding-top: 50px;
-    padding-left: 3px;
-    padding-right: 3px;
-    top: 0.25rem;
-    position: fixed;
-    align-items: center;
-    color: $text-color;
-}
 .archive__imgContainer{
    width: 100%;
    padding: 5px;

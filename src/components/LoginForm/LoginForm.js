@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { Button, Input } from '@material-ui/core';
 
 class LoginForm extends Component {
   state = {
@@ -42,7 +43,10 @@ class LoginForm extends Component {
         <div>
           <label htmlFor="username">
             Username:
-            <input
+            <Input
+              InputProps={{ className: "text_color" }}
+              InputLabelProps={{ className: "text_color" }}
+              InputPlaceholderProps={{ className: "text_color" }}
               type="text"
               name="username"
               required
@@ -54,7 +58,7 @@ class LoginForm extends Component {
         <div>
           <label htmlFor="password">
             Password:
-            <input
+            <Input
               type="password"
               name="password"
               required
@@ -64,7 +68,7 @@ class LoginForm extends Component {
           </label>
         </div>
         <div>
-          <input className="btn" type="submit" name="submit" value="Log In" />
+          <Button className="text_color" type="submit" name="submit" value="Log In">Log In</Button>
         </div>
       </form>
     );

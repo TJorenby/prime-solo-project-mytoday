@@ -96,7 +96,7 @@ const NewEventForm = (props) => {
         <>
             <animated.div style={trans}>
                 <div className="newevent">
-                    <div className="newevent__header">
+                    <div className="center__header">
                         <h4>New Event</h4>
                         <div className="text_color">
                             <p>{moment().format('LT')}</p>

@@ -1,17 +1,18 @@
 @import '../scss/colors.scss';
 
-.userpage__header{
-    color: $text-color;
-}
 
 .userpage__eventContainer {
-    // height: 100px;
+    margin-top: 10px;
     width: 100%;
     background-color: $container;
     display: flex;
     border-radius: 0.5rem;
-    // justify-content: space-between;
     border-bottom: 1px solid lightgray;
+}
+
+.userpage__eventList {
+    position: relative;
+    margin-top: 30px;
 }
 
 .eventContainer__dateDescription {
@@ -21,13 +22,14 @@
 }
 
 .dateDescription__date {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     margin-left: 180px;
     margin-top: 10px;
 }
 
 .dateDescription__description {
-    margin-right: 20px;
+    margin-top: 5px;
+    margin-left: 55px;
 }
 
 .eventContainer__event {

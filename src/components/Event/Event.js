@@ -5,8 +5,8 @@ import moment from 'moment';
 //Styling Imports
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Input } from '@material-ui/core';
-import { BiTrash } from "react-icons/bi";
+import { Button, TextField, Input } from '@material-ui/core';
+import { BiTrash, BiCheck } from "react-icons/bi";
 import './Event.scss';
 
 
@@ -26,8 +26,6 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
     paper: {
         position: 'absolute',
-        width: "80%",
-        // height: "50%",
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
@@ -107,62 +105,73 @@ function Event(props) {
                 onClose={() => setModalOpen(false)}
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <div>
-                        <div className="event__modalImage">
-                            <img src={`${props.item.file_url}`} />
-                        </div>
-                        <div>{date}</div>
-                        <div className="event__modalText">
-
-                        </div>
-
+                    <div className="event__modalContainer">
                         <div>
+                            <img
+                                className="event__modalImage"
+                                src={`${props.item.file_url}`} />
+                        </div>
+
+
+                        <div className="event__modalDate">{date}</div>
+
+
+
+                        <div className="event__modalCaption">
 
                             {
                                 textOpen ? (
-                                    <input
+
+                                    <TextField
                                         type="text"
                                         placeholder={description}
                                         onChange={(e) => setDescription(e.target.value)}
                                     />
+
                                 ) : (
-                                        <p>{description}</p>
+                                        <div>
+                                            {props.item.description}
+                                        </div>
                                     )
                             }
                         </div>
 
 
-                        {textOpen ? (
-                            <div>
-                                <button
-                                    onClick={() => updateDescription()}
-
-                                >Update Text</button>
-                            </div>
-                        ) : (null)}
-
-
-                        <div>
+                        <div className="event__modalBtns">
                             <label htmlFor="deleteBtn">
-                                <BiTrash size="30px" />
+                                <BiTrash size="23px" />
                             </label>
-                            <button
+                            <Button
                                 id="deleteBtn"
                                 className="btn-hide"
                                 onClick={() => deleteEvent(props.item.id)}
-                            ></button>
-                            <input
+                            />
+                            {/* <input
                                 type='checkbox'
                                 className='custom-checkbox-input'
                                 id='highlighCheckbox'
                                 value={highlight}
                                 onClick={toggleHighlight}
-                            />
-                            {textOpen ? (null) : (
-                                <button
-                                    onClick={() => setTextOpen(true)}
-                                >Edit Text</button>
-                            )}
+                            /> */}
+                            <div>
+                                {textOpen ? (<div >
+                                    <label htmlFor="updateBtn">
+                                        <BiCheck className="event__modalCheckBtn" size="25px" />
+                                    </label>
+                                    <Button
+                                        id="updateBtn"
+                                        // className="btn-hide"
+                                        onClick={() => updateDescription()}
+
+                                    />
+                                </div>) : (
+                                        <div>
+                                            <Button
+                                                onClick={() => setTextOpen(true)}
+                                            >Edit</Button>
+                                        </div>
+                                    )}
+                            </div>
                         </div>
                     </div>
                 </div >

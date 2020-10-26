@@ -3,17 +3,17 @@
 --10/25 TO DO--
 
     --Styling--
-        [] Complete styling on Camera Component
-        [] Style Login page
+        [X] Complete styling on Camera Component
+        [X] Style Login page
         [X] Header and Footer line breaks
         [] Highlight Component
         [X] Search Component in Archive - Drawer and spy glass?
         [] Style the Modal
-        [] Event page - Fix height
+        [X] Event page - Fix height
 
 
     --Other--
-        [] Database Assembly
+        [X] Database Assembly
         [] Revise intro
         [] Choose Intro song
         [] Tech used?

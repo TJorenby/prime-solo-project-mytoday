@@ -38,15 +38,15 @@ class App extends Component {
       <Router>
         <div className="body">
 
-          <div className="header">
+          <div>
             {this.props.store.user.id ? (
 
-              <Header />
+              <Header className="header" />
 
             ) : (null)}
           </div>
 
-          <div className="center">
+          <div className={this.props.store.user.id ? ("center") : ("")}>
 
 
             <Switch>
@@ -146,10 +146,10 @@ class App extends Component {
           </div>
 
 
-          <div className="footer">
+          <div>
             {this.props.store.user.id ? (
 
-              <FooterNav />
+              <FooterNav className="footer" />
 
             ) : (null)}
           </div>

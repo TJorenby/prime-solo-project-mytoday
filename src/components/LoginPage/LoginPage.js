@@ -9,13 +9,20 @@ import './LoginPage.scss';
 class LoginPage extends Component {
   render() {
     return (
-      <div className="login__form">
-        <LoginForm />
+      <div >
+        <img
+          className="login__logo"
+          src="/images/myToday-logo-white4.png"
+          alt=""
+        />
+        <div className="login__form">
+          <LoginForm />
+        </div>
 
         <center>
           <button
             type="button"
-            className="btn btn_asLink"
+            className="btn_asLink text_color"
             onClick={() => {
               this.props.history.push('/registration');
             }}
