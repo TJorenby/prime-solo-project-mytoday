@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //Styling Imports
 import './FooterNav.scss'
@@ -23,11 +23,11 @@ function FooterNav() {
                     </div>
                 </Link>
 
-                <Link to="/highlights">
+                {/* <Link to="/highlights">
 
                     <BiPin size="30px" color="whitesmoke" />
 
-                </Link>
+                </Link> */}
 
                 <Link to="/home">
 

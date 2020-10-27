@@ -5,7 +5,7 @@ import moment from 'moment';
 //Styling Imports
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, TextField, Input } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import { BiTrash, BiCheck } from "react-icons/bi";
 import './Event.scss';
 
@@ -57,9 +57,9 @@ function Event(props) {
     }
 
 
-    const toggleHighlight = () => {
-        highlight ? setHighlight(false) : setHighlight(true);
-    }
+    // const toggleHighlight = () => {
+    //     highlight ? setHighlight(false) : setHighlight(true);
+    // }
 
     const updateDescription = () => {
         console.log('in updateText');
@@ -95,7 +95,9 @@ function Event(props) {
             >
                 <img
                     className="event__imgClick"
-                    src={`${props.item.file_url}`} />
+                    src={`${props.item.file_url}`}
+                    alt=""
+                />
             </div>
 
 
@@ -109,13 +111,13 @@ function Event(props) {
                         <div>
                             <img
                                 className="event__modalImage"
-                                src={`${props.item.file_url}`} />
+                                src={`${props.item.file_url}`}
+                                alt=""
+                            />
                         </div>
 
 
                         <div className="event__modalDate">{date}</div>
-
-
 
                         <div className="event__modalCaption">
 

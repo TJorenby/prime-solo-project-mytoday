@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Event from '../Event/Event';
@@ -11,17 +11,8 @@ import './UserPage.scss';
 import { useSpring, animated } from 'react-spring';
 
 function UserPage(props) {
-  const [month, setMonth] = useState('');
   const todayDate = moment(new Date()).format('ll');
-
-
-
-
   const trans = useSpring({ opacity: 1, from: { opacity: 0 } });
-
-
-
-
 
   return (
 
@@ -36,8 +27,6 @@ function UserPage(props) {
 
       <div className="userpage__eventList">
         {props.store.items.map((item, i) => {
-
-
 
           if (props.store.user.id === item.user_id) {
             console.log('item.date is:', item.date);
@@ -56,7 +45,9 @@ function UserPage(props) {
                   style={trans}
                   className="userpage__eventContainer"
                 >
-                  <Event item={item} className="eventContainer__event" />
+                  <div className="eventContainer__event">
+                    <Event item={item} />
+                  </div>
 
 
                   <div className="eventContainer__dateDescription">
@@ -78,7 +69,8 @@ function UserPage(props) {
               )
             }
           }
-        })}
+          return null;
+        })};
       </div>
     </div>
   )

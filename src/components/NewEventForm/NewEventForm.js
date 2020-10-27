@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import Camera3 from '../Camera3/Camera3';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
             margin: theme.spacing(1),
-            width: '25ch',
+            width: '35ch',
             color: "whitesmoke"
 
         },
@@ -49,10 +49,11 @@ const NewEventForm = (props) => {
         highlight: highlight
     }
 
-    console.log('Description:', description);
-    console.log('highlight:', highlight);
-    console.log('New Event file:', file);
-    console.log('New Event camImage:', camImage);
+    // Test Logs
+    // console.log('Description:', description);
+    // console.log('highlight:', highlight);
+    // console.log('New Event file:', file);
+    // console.log('New Event camImage:', camImage);
 
     const onChange = e => {
         setFile(e.target.files[0]);
@@ -70,9 +71,9 @@ const NewEventForm = (props) => {
         })
     };
 
-    const toggleHighlight = () => {
-        highlight ? setHighlight(false) : setHighlight(true);
-    }
+    // const toggleHighlight = () => {
+    //     highlight ? setHighlight(false) : setHighlight(true);
+    // }
 
     const toggleImageView = (e) => {
         camOn ? setCamOn(false) : setCamOn(true);
@@ -144,20 +145,24 @@ const NewEventForm = (props) => {
                         />
                     </div>
 
-                    {camOn ? (<div></div>) : (
-                        <div>
-                            <label htmlFor="camBtn">
-                                <BiCamera size="30px" color="whitesmoke" />
-                            </label>
-                            <button
-                                id="camBtn"
-                                className="btn-hide"
-                                onClick={() => toggleImageView()}
-                            />
+                    <div>
+                        {
+                            camOn ? (null) : (
+                                <>
+                                    <label htmlFor="camBtn">
+                                        <BiCamera size="30px" color="whitesmoke" />
+                                    </label>
+                                    <button
+                                        id="camBtn"
+                                        className="btn-hide"
+                                        onClick={() => toggleImageView()}
+                                    />
+                                </>
 
-                        </div>
-                    )}
+                            )
+                        }
 
+                    </div>
                     <div className={camOn ? "hide" : ""}>
 
                         <Link className="link" to="user">
@@ -167,13 +172,7 @@ const NewEventForm = (props) => {
                             >Add</Button>
                         </Link>
                     </div>
-
-
-
                 </div>
-
-
-
 
                 {camOn ? <div className="newevent__formContainer"></div> : (
 
@@ -182,10 +181,10 @@ const NewEventForm = (props) => {
                         <form className={classes.root} noValidate autoComplete="off">
 
                             <TextField
+                                className="form__textField"
                                 InputProps={{ className: "text_color" }}
                                 InputLabelProps={{ className: "text_color" }}
                                 InputPlaceholderProps={{ className: "text_color" }}
-
                                 type='text'
                                 id="standard-multiline-static"
                                 multiline
@@ -197,7 +196,7 @@ const NewEventForm = (props) => {
 
 
                         </form>
-                        <label>
+                        {/* <label>
                             <input
                                 type='checkbox'
                                 className='neweventform__checkbox'
@@ -212,7 +211,7 @@ const NewEventForm = (props) => {
                                 size={20}
                                 color={highlight ? "red" : "blue"}
                             />
-                        </label>
+                        </label> */}
 
                     </div>
 

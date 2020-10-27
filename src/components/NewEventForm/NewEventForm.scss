@@ -1,7 +1,7 @@
 @import '../scss/main.scss';
 
 .newevent {
-    // margin-bottom: 10%;
+    
     background-color: $body;
     color: $text-color;
 }
@@ -20,24 +20,21 @@
     border: 1px solid lightgray;
     border-radius: 0.5rem;
     
-    // object-fit: contain;
-    // border-top: 1px solid lightgray;
-    // border-bottom: 1px solid lightgray;
-    // margin: 0, 5vw;
 }
 
 .neweventform__imgButtonContainer {
     width: 100%;
-    // margin-top: 30px;
     object-position: center; 
     display: flex; 
     justify-content: space-between;
 }
 
-.newevent_form {
+.newevent__form {
     margin-bottom: 10%;
     margin-top: 10%;
+    margin-left: 5%;
 }
+
 
 .newevent__header {
     
@@ -58,13 +55,14 @@
     margin-top: 22%;
       display: flex;
       align-items: center;
-    //   justify-content: space-between;
+   
   }
 
   .newevent__topBtns {
       display: flex;
       justify-content: space-between;
       margin-top: 10%;
+      margin-left: 5%;
   }
 
 

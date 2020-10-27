@@ -105,6 +105,7 @@ function Archive(props) {
                                     )
                                 }
                             }
+                            return null;
                         })}
                     </GridList>
                 </div>
@@ -153,6 +154,7 @@ function Archive(props) {
                                         </GridListTile>
                                     )
                                 }
+                                return null;
                             })}
                         </GridList>
                     </div>
