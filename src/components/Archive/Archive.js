@@ -15,12 +15,10 @@ import GridListTile from '@material-ui/core/GridListTile';
 import Button from '@material-ui/core/Button';
 import { useSpring, animated } from 'react-spring';
 import { BiSearch } from "react-icons/bi";
-
-//DRAWER
 import Drawer from '@material-ui/core/Drawer';
 
 
-// Grid styling 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -31,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
     },
     gridList: {
         width: 500,
-        // height: 450,
+
     },
-    // DRAWER
+
     list: {
         width: 50,
     },

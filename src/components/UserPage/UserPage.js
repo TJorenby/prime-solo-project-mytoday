@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Link } from 'react-router-dom';
 import Event from '../Event/Event';
 import moment from 'moment';
-import { useSpring, animated } from 'react-spring';
-import LogOutButton from '../LogOutButton/LogOutButton';
+
+
 
 //Styling Imports
 import './UserPage.scss';
+import { useSpring, animated } from 'react-spring';
 
 function UserPage(props) {
   const [month, setMonth] = useState('');

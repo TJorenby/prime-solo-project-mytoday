@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-//________
+
 
 function Event(props) {
 
@@ -146,13 +146,7 @@ function Event(props) {
                                 className="btn-hide"
                                 onClick={() => deleteEvent(props.item.id)}
                             />
-                            {/* <input
-                                type='checkbox'
-                                className='custom-checkbox-input'
-                                id='highlighCheckbox'
-                                value={highlight}
-                                onClick={toggleHighlight}
-                            /> */}
+
                             <div>
                                 {textOpen ? (<div >
                                     <label htmlFor="updateBtn">
@@ -160,7 +154,6 @@ function Event(props) {
                                     </label>
                                     <Button
                                         id="updateBtn"
-                                        // className="btn-hide"
                                         onClick={() => updateDescription()}
 
                                     />

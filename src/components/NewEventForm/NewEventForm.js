@@ -9,11 +9,10 @@ import { useSpring, animated } from 'react-spring';
 
 //Styling Imports
 import './NewEventForm.scss';
-import { Input } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { BiImage, BiCamera, BiPin, BiImageAdd } from "react-icons/bi";
+import { BiCamera, BiPin, BiImageAdd } from "react-icons/bi";
 
 
 
