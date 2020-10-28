@@ -1,14 +1,15 @@
 import React from 'react';
+
+
+//Style Imports
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-//Style Imports
 
-
-
+// Material UI styling
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -29,11 +30,13 @@ function MonthPicker(props) {
     const [month, setMonth] = React.useState('');
     const [year, setYear] = React.useState('');
 
+    // assigns value to 'month' variable passes is to the archive component
     const handleChangeMonth = (event) => {
         setMonth(event.target.value);
         props.setMonth(event.target.value);
     };
 
+    // assigns value to 'year' variable passes is to the archive component
     const handleChangeYear = (event) => {
         setYear(event.target.value);
         props.setYear(event.target.value);
@@ -81,15 +84,13 @@ function MonthPicker(props) {
                     <MenuItem value="" disabled>
                         Year
           </MenuItem>
+                    <MenuItem value={'2018'}>2019</MenuItem>
                     <MenuItem value={'2019'}>2019</MenuItem>
                     <MenuItem value={'2020'}>2020</MenuItem>
                     <MenuItem value={'2021'}>2021</MenuItem>
                 </Select>
                 <FormHelperText>Year</FormHelperText>
             </FormControl>
-
-
-
         </div >
     )
 }

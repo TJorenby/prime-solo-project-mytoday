@@ -15,7 +15,7 @@ import TextField from '@material-ui/core/TextField';
 import { BiCamera, BiPin, BiImageAdd } from "react-icons/bi";
 
 
-
+// Material UI styling
 const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
@@ -55,6 +55,9 @@ const NewEventForm = (props) => {
     // console.log('New Event file:', file);
     // console.log('New Event camImage:', camImage);
 
+
+
+    // sets the value of 'file' variable. Passes 'e' as the argument for imageHandler() and turns the camera off (which then displays the image preview rather than the cam)
     const onChange = e => {
         setFile(e.target.files[0]);
         imageHandler(e.target.files[0]);
@@ -62,8 +65,10 @@ const NewEventForm = (props) => {
 
     };
 
+
+    // sends newEvent object to the saga. 
     const onSubmit = () => {
-        // e.preventDefault();
+
         // sending items to db
         props.dispatch({
             type: 'ADD_EVENT',
@@ -75,11 +80,14 @@ const NewEventForm = (props) => {
     //     highlight ? setHighlight(false) : setHighlight(true);
     // }
 
-    const toggleImageView = (e) => {
+
+    // sets the camera on/off status and resets the camera image (which renders on the DOM)
+    const toggleImageView = () => {
         camOn ? setCamOn(false) : setCamOn(true);
         setCamImage('');
     }
 
+    // responsible for rendering the selected file upload on the DOM. It also resets setCamImage in order to facilitate conditional rendering. 
     const imageHandler = e => {
         const reader = new FileReader();
         reader.onload = () => {

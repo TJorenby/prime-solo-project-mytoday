@@ -18,7 +18,7 @@ import { BiSearch } from "react-icons/bi";
 import Drawer from '@material-ui/core/Drawer';
 
 
-
+// Material UI styling
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -40,37 +40,42 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
+
 function Archive(props) {
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
     const [monthYear, setMonthYear] = useState('');
-    const test = [props.store.items];
     const classes = useStyles();
     const trans = useSpring({ opacity: 1, from: { opacity: 0 } });
     const [drawerOpen, setDrawerOpen] = useState(false);
 
 
+    // Test logs
+    // console.log('month is:', month);
+    // console.log('props items:', test);
+    // console.log('month year is:', monthYear);
 
-    console.log('month is:', month);
-    console.log('props items:', test);
-    console.log('month year is:', monthYear);
 
-
+    // concatenates a search string that is compared against the dateString variable for conditional rendering
     const searchDate = () => {
         setMonthYear(`${month} ${year}`);
     }
 
+    // closes the Search drawer, resets the search. 
     const closeSearch = () => {
         setMonthYear('');
         setDrawerOpen(false);
     }
 
 
-
+    // opens the Search drawer
     const toggleDrawer = (anchor, open) => (event) => {
         setDrawerOpen({ ...drawerOpen, [anchor]: open });
     };
 
+
+    // Drawer contents
     const list = (anchor) => (
         <div className="archive__dateSearch">
 
@@ -134,9 +139,6 @@ function Archive(props) {
                     <Drawer anchor={'top'} open={drawerOpen['top']} onClose={toggleDrawer('top', false)}>
                         {list('top')}
                     </Drawer>
-
-
-
                 </div>
 
 

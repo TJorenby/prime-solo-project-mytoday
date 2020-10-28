@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+
+
+//Styling Imports
 import { Button, Input } from '@material-ui/core';
 
 class LoginForm extends Component {

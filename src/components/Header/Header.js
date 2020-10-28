@@ -1,6 +1,8 @@
 import React from 'react'
-import './Header.scss'
 import LogOutButton from '../LogOutButton/LogOutButton';
+
+//Styling Imports
+import './Header.scss'
 
 function Header() {
     return (

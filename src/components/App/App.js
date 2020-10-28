@@ -7,23 +7,22 @@ import {
 } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/mapStoreToProps';
+
 
 import FooterNav from '../FooterNav/FooterNav';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
-
 import UserPage from '../UserPage/UserPage';
 import Highlights from '../Highlights/Highlights';
 import Archive from '../Archive/Archive';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
-import './App.scss';
-
 import NewEventForm from '../NewEventForm/NewEventForm';
 import Header from '../Header/Header';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+
+
+// Styling imports
+import './App.scss';
 
 class App extends Component {
   componentDidMount() {

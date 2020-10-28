@@ -23,6 +23,7 @@ function getModalStyle() {
     };
 }
 
+// Material UI styling
 const useStyles = makeStyles((theme) => ({
     paper: {
         position: 'absolute',
@@ -48,12 +49,11 @@ function Event(props) {
     const [modalStyle] = React.useState(getModalStyle);
     const [modalOpen, setModalOpen] = useState(false);
 
+    // object that is sent to db
     const update = {
         description: description,
         highlight: highlight,
         id: props.item.id
-
-
     }
 
 
@@ -61,6 +61,8 @@ function Event(props) {
     //     highlight ? setHighlight(false) : setHighlight(true);
     // }
 
+
+    // sends description update to saga, closes the text input field
     const updateDescription = () => {
         console.log('in updateText');
         setTextOpen(false);
@@ -74,9 +76,10 @@ function Event(props) {
 
     console.log('update:', update);
 
+
+    // sends delete request (item id) to saga, closes the corresponding modal. 
     const deleteEvent = (id) => {
         console.log('in deleteItem with item id:', id);
-        setDescription(props.item.description);
 
         props.dispatch({
             type: 'DELETE_EVENT',
@@ -126,7 +129,7 @@ function Event(props) {
 
                                     <TextField
                                         type="text"
-                                        placeholder={description}
+                                        placeholder={props.item.description}
                                         onChange={(e) => setDescription(e.target.value)}
                                     />
 
