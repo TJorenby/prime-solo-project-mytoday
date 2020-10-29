@@ -54,4 +54,4 @@ A very special thanks to the instructors and staff at Prime Digital Academy, my 
 
 ## Demo
 
-![demo](https://www.youtube.com/watch?v=RtXdq-n7Qh0)
+![Presentation Video](https://www.youtube.com/watch?v=RtXdq-n7Qh0)
