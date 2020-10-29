@@ -54,4 +54,6 @@ A very special thanks to the instructors and staff at Prime Digital Academy, my 
 
 ## Demo
 
-![Presentation Video](https://www.youtube.com/watch?v=RtXdq-n7Qh0)
+For a walk-through of this app, please visit the link below. Thanks! 
+
+[link text](https://www.youtube.com/watch?v=RtXdq-n7Qh0)
