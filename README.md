@@ -2,7 +2,7 @@
 
 ## Description
 
-Duration: Five Days
+Duration: Ten Days
 
 myToday is a mobile-optimized app designed to allow users to take photos via their webcam or upload them from their computer, provide a caption, and store them in a date-sorted archive. It's perfect for those looking to capture moments of their lives using a familiar "social media app" format; but without the obligation to curate a post for the public to see. Authentication allows multiple users to 
 
