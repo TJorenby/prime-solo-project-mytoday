@@ -2,7 +2,7 @@
 
 ## Description
 
-Duration: Ten Days
+Duration: Two Week Sprint
 
 myToday is a mobile-optimized app designed to allow users to take photos via their webcam or upload them from their computer, provide a caption, and store them in a date-sorted archive. It's perfect for those looking to capture moments of their lives using a familiar "social media app" format; but without the obligation to curate a post for the public to see. Authentication allows multiple users to 
 
@@ -10,25 +10,30 @@ In building this app, I leveraged skills for full stack integration, connecting 
 
 ## Built With
 
-This app features...
+    - JavaScript
     - React
+    - Moment.js
+    - React Webcam
     - Node
     - Express
+    - Express File Upload
     - Redux-Saga
     - React-Redux
     - PostgreSQL
 
-Components were styled using...
+
     - SCSS
     - React-Icons (Box Icons)
     - Material UI
+    - React Spring
     
 
 ## Prerequisites 
 
 To run this app, you will need:
-    -Node.js
-    -Postgres
+
+    - [Node.js](https://nodejs.org/en/)
+    - [PostgreSQL](https://www.postgresql.org/)
     
 ## Install
 
